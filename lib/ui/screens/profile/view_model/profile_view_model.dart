@@ -58,7 +58,7 @@ class ProfileViewModel extends ChangeNotifier {
       return;
     }
 
-    final hasChanged = _hasUserDetailDependencyChanged(user);
+    final hasChanged = _hasUserDetailChanged(user);
 
     if (hasChanged && !_isFetching) {
       fetchUserDetail();
@@ -68,7 +68,7 @@ class ProfileViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool _hasUserDetailDependencyChanged(User user) {
+  bool _hasUserDetailChanged(User user) {
     return _lastUserId != user.id ||
         _lastSubscriptionId != user.subscriptionId ||
         _lastBookingId != user.currentBookingId;
