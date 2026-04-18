@@ -1,0 +1,2727 @@
+{
+  "stations": {
+    "station_1": {
+      "name": "Wat Phnom",
+      "street": "France St",
+      "lat": 11.577527,
+      "lng": 104.921939,
+      "slots": {
+        "slot_1": {
+          "slotNumber": 1,
+          "bikeId": "bike_1_1"
+        },
+        "slot_2": {
+          "slotNumber": 2,
+          "bikeId": null
+        },
+        "slot_3": {
+          "slotNumber": 3,
+          "bikeId": "bike_1_3"
+        },
+        "slot_4": {
+          "slotNumber": 4,
+          "bikeId": null
+        },
+        "slot_5": {
+          "slotNumber": 5,
+          "bikeId": "bike_1_5"
+        },
+        "slot_6": {
+          "slotNumber": 6,
+          "bikeId": null
+        },
+        "slot_7": {
+          "slotNumber": 7,
+          "bikeId": "bike_1_7"
+        },
+        "slot_8": {
+          "slotNumber": 8,
+          "bikeId": null
+        },
+        "slot_9": {
+          "slotNumber": 9,
+          "bikeId": "bike_1_9"
+        },
+        "slot_10": {
+          "slotNumber": 10,
+          "bikeId": null
+        },
+        "slot_11": {
+          "slotNumber": 11,
+          "bikeId": "bike_1_11"
+        },
+        "slot_12": {
+          "slotNumber": 12,
+          "bikeId": null
+        },
+        "slot_13": {
+          "slotNumber": 13,
+          "bikeId": "bike_1_13"
+        },
+        "slot_14": {
+          "slotNumber": 14,
+          "bikeId": null
+        },
+        "slot_15": {
+          "slotNumber": 15,
+          "bikeId": "bike_1_15"
+        },
+        "slot_16": {
+          "slotNumber": 16,
+          "bikeId": null
+        },
+        "slot_17": {
+          "slotNumber": 17,
+          "bikeId": "bike_1_17"
+        },
+        "slot_18": {
+          "slotNumber": 18,
+          "bikeId": null
+        },
+        "slot_19": {
+          "slotNumber": 19,
+          "bikeId": "bike_1_19"
+        },
+        "slot_20": {
+          "slotNumber": 20,
+          "bikeId": null
+        },
+        "slot_21": {
+          "slotNumber": 21,
+          "bikeId": "bike_1_21"
+        },
+        "slot_22": {
+          "slotNumber": 22,
+          "bikeId": null
+        },
+        "slot_23": {
+          "slotNumber": 23,
+          "bikeId": "bike_1_23"
+        },
+        "slot_24": {
+          "slotNumber": 24,
+          "bikeId": null
+        },
+        "slot_25": {
+          "slotNumber": 25,
+          "bikeId": "bike_1_25"
+        },
+        "slot_26": {
+          "slotNumber": 26,
+          "bikeId": null
+        },
+        "slot_27": {
+          "slotNumber": 27,
+          "bikeId": "bike_1_27"
+        },
+        "slot_28": {
+          "slotNumber": 28,
+          "bikeId": null
+        },
+        "slot_29": {
+          "slotNumber": 29,
+          "bikeId": "bike_1_29"
+        },
+        "slot_30": {
+          "slotNumber": 30,
+          "bikeId": null
+        },
+        "slot_31": {
+          "slotNumber": 31,
+          "bikeId": "bike_1_31"
+        },
+        "slot_32": {
+          "slotNumber": 32,
+          "bikeId": null
+        },
+        "slot_33": {
+          "slotNumber": 33,
+          "bikeId": "bike_1_33"
+        },
+        "slot_34": {
+          "slotNumber": 34,
+          "bikeId": null
+        },
+        "slot_35": {
+          "slotNumber": 35,
+          "bikeId": "bike_1_35"
+        },
+        "slot_36": {
+          "slotNumber": 36,
+          "bikeId": null
+        },
+        "slot_37": {
+          "slotNumber": 37,
+          "bikeId": "bike_1_37"
+        },
+        "slot_38": {
+          "slotNumber": 38,
+          "bikeId": null
+        },
+        "slot_39": {
+          "slotNumber": 39,
+          "bikeId": "bike_1_39"
+        },
+        "slot_40": {
+          "slotNumber": 40,
+          "bikeId": null
+        }
+      }
+    },
+    "station_2": {
+      "name": "Royal Palace",
+      "street": "Samdach Sothearos Blvd",
+      "lat": 11.562115,
+      "lng": 104.933087,
+      "slots": {
+        "slot_1": {
+          "slotNumber": 1,
+          "bikeId": "bike_2_1"
+        },
+        "slot_2": {
+          "slotNumber": 2,
+          "bikeId": null
+        },
+        "slot_3": {
+          "slotNumber": 3,
+          "bikeId": "bike_2_3"
+        },
+        "slot_4": {
+          "slotNumber": 4,
+          "bikeId": null
+        },
+        "slot_5": {
+          "slotNumber": 5,
+          "bikeId": "bike_2_5"
+        },
+        "slot_6": {
+          "slotNumber": 6,
+          "bikeId": null
+        },
+        "slot_7": {
+          "slotNumber": 7,
+          "bikeId": "bike_2_7"
+        },
+        "slot_8": {
+          "slotNumber": 8,
+          "bikeId": null
+        },
+        "slot_9": {
+          "slotNumber": 9,
+          "bikeId": "bike_2_9"
+        },
+        "slot_10": {
+          "slotNumber": 10,
+          "bikeId": null
+        },
+        "slot_11": {
+          "slotNumber": 11,
+          "bikeId": "bike_2_11"
+        },
+        "slot_12": {
+          "slotNumber": 12,
+          "bikeId": null
+        },
+        "slot_13": {
+          "slotNumber": 13,
+          "bikeId": "bike_2_13"
+        },
+        "slot_14": {
+          "slotNumber": 14,
+          "bikeId": null
+        },
+        "slot_15": {
+          "slotNumber": 15,
+          "bikeId": "bike_2_15"
+        },
+        "slot_16": {
+          "slotNumber": 16,
+          "bikeId": null
+        },
+        "slot_17": {
+          "slotNumber": 17,
+          "bikeId": "bike_2_17"
+        },
+        "slot_18": {
+          "slotNumber": 18,
+          "bikeId": null
+        },
+        "slot_19": {
+          "slotNumber": 19,
+          "bikeId": "bike_2_19"
+        },
+        "slot_20": {
+          "slotNumber": 20,
+          "bikeId": null
+        },
+        "slot_21": {
+          "slotNumber": 21,
+          "bikeId": "bike_2_21"
+        },
+        "slot_22": {
+          "slotNumber": 22,
+          "bikeId": null
+        },
+        "slot_23": {
+          "slotNumber": 23,
+          "bikeId": "bike_2_23"
+        },
+        "slot_24": {
+          "slotNumber": 24,
+          "bikeId": null
+        },
+        "slot_25": {
+          "slotNumber": 25,
+          "bikeId": "bike_2_25"
+        },
+        "slot_26": {
+          "slotNumber": 26,
+          "bikeId": null
+        },
+        "slot_27": {
+          "slotNumber": 27,
+          "bikeId": "bike_2_27"
+        },
+        "slot_28": {
+          "slotNumber": 28,
+          "bikeId": null
+        },
+        "slot_29": {
+          "slotNumber": 29,
+          "bikeId": "bike_2_29"
+        },
+        "slot_30": {
+          "slotNumber": 30,
+          "bikeId": null
+        },
+        "slot_31": {
+          "slotNumber": 31,
+          "bikeId": "bike_2_31"
+        },
+        "slot_32": {
+          "slotNumber": 32,
+          "bikeId": null
+        },
+        "slot_33": {
+          "slotNumber": 33,
+          "bikeId": "bike_2_33"
+        },
+        "slot_34": {
+          "slotNumber": 34,
+          "bikeId": null
+        },
+        "slot_35": {
+          "slotNumber": 35,
+          "bikeId": "bike_2_35"
+        },
+        "slot_36": {
+          "slotNumber": 36,
+          "bikeId": null
+        },
+        "slot_37": {
+          "slotNumber": 37,
+          "bikeId": "bike_2_37"
+        },
+        "slot_38": {
+          "slotNumber": 38,
+          "bikeId": null
+        },
+        "slot_39": {
+          "slotNumber": 39,
+          "bikeId": "bike_2_39"
+        },
+        "slot_40": {
+          "slotNumber": 40,
+          "bikeId": null
+        }
+      }
+    },
+    "station_3": {
+      "name": "CADT",
+      "street": "Plov Lum",
+      "lat": 11.652699,
+      "lng": 104.911726,
+      "slots": {
+        "slot_1": {
+          "slotNumber": 1,
+          "bikeId": "bike_3_1"
+        },
+        "slot_2": {
+          "slotNumber": 2,
+          "bikeId": null
+        },
+        "slot_3": {
+          "slotNumber": 3,
+          "bikeId": "bike_3_3"
+        },
+        "slot_4": {
+          "slotNumber": 4,
+          "bikeId": null
+        },
+        "slot_5": {
+          "slotNumber": 5,
+          "bikeId": "bike_3_5"
+        },
+        "slot_6": {
+          "slotNumber": 6,
+          "bikeId": null
+        },
+        "slot_7": {
+          "slotNumber": 7,
+          "bikeId": "bike_3_7"
+        },
+        "slot_8": {
+          "slotNumber": 8,
+          "bikeId": null
+        },
+        "slot_9": {
+          "slotNumber": 9,
+          "bikeId": "bike_3_9"
+        },
+        "slot_10": {
+          "slotNumber": 10,
+          "bikeId": null
+        },
+        "slot_11": {
+          "slotNumber": 11,
+          "bikeId": "bike_3_11"
+        },
+        "slot_12": {
+          "slotNumber": 12,
+          "bikeId": null
+        },
+        "slot_13": {
+          "slotNumber": 13,
+          "bikeId": "bike_3_13"
+        },
+        "slot_14": {
+          "slotNumber": 14,
+          "bikeId": null
+        },
+        "slot_15": {
+          "slotNumber": 15,
+          "bikeId": "bike_3_15"
+        },
+        "slot_16": {
+          "slotNumber": 16,
+          "bikeId": null
+        },
+        "slot_17": {
+          "slotNumber": 17,
+          "bikeId": "bike_3_17"
+        },
+        "slot_18": {
+          "slotNumber": 18,
+          "bikeId": null
+        },
+        "slot_19": {
+          "slotNumber": 19,
+          "bikeId": "bike_3_19"
+        },
+        "slot_20": {
+          "slotNumber": 20,
+          "bikeId": null
+        },
+        "slot_21": {
+          "slotNumber": 21,
+          "bikeId": "bike_3_21"
+        },
+        "slot_22": {
+          "slotNumber": 22,
+          "bikeId": null
+        },
+        "slot_23": {
+          "slotNumber": 23,
+          "bikeId": "bike_3_23"
+        },
+        "slot_24": {
+          "slotNumber": 24,
+          "bikeId": null
+        },
+        "slot_25": {
+          "slotNumber": 25,
+          "bikeId": "bike_3_25"
+        },
+        "slot_26": {
+          "slotNumber": 26,
+          "bikeId": null
+        },
+        "slot_27": {
+          "slotNumber": 27,
+          "bikeId": "bike_3_27"
+        },
+        "slot_28": {
+          "slotNumber": 28,
+          "bikeId": null
+        },
+        "slot_29": {
+          "slotNumber": 29,
+          "bikeId": "bike_3_29"
+        },
+        "slot_30": {
+          "slotNumber": 30,
+          "bikeId": null
+        },
+        "slot_31": {
+          "slotNumber": 31,
+          "bikeId": "bike_3_31"
+        },
+        "slot_32": {
+          "slotNumber": 32,
+          "bikeId": null
+        },
+        "slot_33": {
+          "slotNumber": 33,
+          "bikeId": "bike_3_33"
+        },
+        "slot_34": {
+          "slotNumber": 34,
+          "bikeId": null
+        },
+        "slot_35": {
+          "slotNumber": 35,
+          "bikeId": "bike_3_35"
+        },
+        "slot_36": {
+          "slotNumber": 36,
+          "bikeId": null
+        },
+        "slot_37": {
+          "slotNumber": 37,
+          "bikeId": "bike_3_37"
+        },
+        "slot_38": {
+          "slotNumber": 38,
+          "bikeId": null
+        },
+        "slot_39": {
+          "slotNumber": 39,
+          "bikeId": "bike_3_39"
+        },
+        "slot_40": {
+          "slotNumber": 40,
+          "bikeId": null
+        }
+      }
+    },
+    "station_4": {
+      "name": "Apsaras Fountain",
+      "street": "OCIC",
+      "lat": 11.593562,
+      "lng": 104.926291,
+      "slots": {
+        "slot_1": {
+          "slotNumber": 1,
+          "bikeId": "bike_4_1"
+        },
+        "slot_2": {
+          "slotNumber": 2,
+          "bikeId": null
+        },
+        "slot_3": {
+          "slotNumber": 3,
+          "bikeId": "bike_4_3"
+        },
+        "slot_4": {
+          "slotNumber": 4,
+          "bikeId": null
+        },
+        "slot_5": {
+          "slotNumber": 5,
+          "bikeId": "bike_4_5"
+        },
+        "slot_6": {
+          "slotNumber": 6,
+          "bikeId": null
+        },
+        "slot_7": {
+          "slotNumber": 7,
+          "bikeId": "bike_4_7"
+        },
+        "slot_8": {
+          "slotNumber": 8,
+          "bikeId": null
+        },
+        "slot_9": {
+          "slotNumber": 9,
+          "bikeId": "bike_4_9"
+        },
+        "slot_10": {
+          "slotNumber": 10,
+          "bikeId": null
+        },
+        "slot_11": {
+          "slotNumber": 11,
+          "bikeId": "bike_4_11"
+        },
+        "slot_12": {
+          "slotNumber": 12,
+          "bikeId": null
+        },
+        "slot_13": {
+          "slotNumber": 13,
+          "bikeId": "bike_4_13"
+        },
+        "slot_14": {
+          "slotNumber": 14,
+          "bikeId": null
+        },
+        "slot_15": {
+          "slotNumber": 15,
+          "bikeId": "bike_4_15"
+        },
+        "slot_16": {
+          "slotNumber": 16,
+          "bikeId": null
+        },
+        "slot_17": {
+          "slotNumber": 17,
+          "bikeId": "bike_4_17"
+        },
+        "slot_18": {
+          "slotNumber": 18,
+          "bikeId": null
+        },
+        "slot_19": {
+          "slotNumber": 19,
+          "bikeId": "bike_4_19"
+        },
+        "slot_20": {
+          "slotNumber": 20,
+          "bikeId": null
+        },
+        "slot_21": {
+          "slotNumber": 21,
+          "bikeId": "bike_4_21"
+        },
+        "slot_22": {
+          "slotNumber": 22,
+          "bikeId": null
+        },
+        "slot_23": {
+          "slotNumber": 23,
+          "bikeId": "bike_4_23"
+        },
+        "slot_24": {
+          "slotNumber": 24,
+          "bikeId": null
+        },
+        "slot_25": {
+          "slotNumber": 25,
+          "bikeId": "bike_4_25"
+        },
+        "slot_26": {
+          "slotNumber": 26,
+          "bikeId": null
+        },
+        "slot_27": {
+          "slotNumber": 27,
+          "bikeId": "bike_4_27"
+        },
+        "slot_28": {
+          "slotNumber": 28,
+          "bikeId": null
+        },
+        "slot_29": {
+          "slotNumber": 29,
+          "bikeId": "bike_4_29"
+        },
+        "slot_30": {
+          "slotNumber": 30,
+          "bikeId": null
+        },
+        "slot_31": {
+          "slotNumber": 31,
+          "bikeId": "bike_4_31"
+        },
+        "slot_32": {
+          "slotNumber": 32,
+          "bikeId": null
+        },
+        "slot_33": {
+          "slotNumber": 33,
+          "bikeId": "bike_4_33"
+        },
+        "slot_34": {
+          "slotNumber": 34,
+          "bikeId": null
+        },
+        "slot_35": {
+          "slotNumber": 35,
+          "bikeId": "bike_4_35"
+        },
+        "slot_36": {
+          "slotNumber": 36,
+          "bikeId": null
+        },
+        "slot_37": {
+          "slotNumber": 37,
+          "bikeId": "bike_4_37"
+        },
+        "slot_38": {
+          "slotNumber": 38,
+          "bikeId": null
+        },
+        "slot_39": {
+          "slotNumber": 39,
+          "bikeId": "bike_4_39"
+        },
+        "slot_40": {
+          "slotNumber": 40,
+          "bikeId": null
+        }
+      }
+    },
+    "station_5": {
+      "name": "Cannon Rifle Roundabout Park",
+      "street": "Street 93",
+      "lat": 11.585949,
+      "lng": 104.916124,
+      "slots": {
+        "slot_1": {
+          "slotNumber": 1,
+          "bikeId": "bike_5_1"
+        },
+        "slot_2": {
+          "slotNumber": 2,
+          "bikeId": null
+        },
+        "slot_3": {
+          "slotNumber": 3,
+          "bikeId": "bike_5_3"
+        },
+        "slot_4": {
+          "slotNumber": 4,
+          "bikeId": null
+        },
+        "slot_5": {
+          "slotNumber": 5,
+          "bikeId": "bike_5_5"
+        },
+        "slot_6": {
+          "slotNumber": 6,
+          "bikeId": null
+        },
+        "slot_7": {
+          "slotNumber": 7,
+          "bikeId": "bike_5_7"
+        },
+        "slot_8": {
+          "slotNumber": 8,
+          "bikeId": null
+        },
+        "slot_9": {
+          "slotNumber": 9,
+          "bikeId": "bike_5_9"
+        },
+        "slot_10": {
+          "slotNumber": 10,
+          "bikeId": null
+        },
+        "slot_11": {
+          "slotNumber": 11,
+          "bikeId": "bike_5_11"
+        },
+        "slot_12": {
+          "slotNumber": 12,
+          "bikeId": null
+        },
+        "slot_13": {
+          "slotNumber": 13,
+          "bikeId": "bike_5_13"
+        },
+        "slot_14": {
+          "slotNumber": 14,
+          "bikeId": null
+        },
+        "slot_15": {
+          "slotNumber": 15,
+          "bikeId": "bike_5_15"
+        },
+        "slot_16": {
+          "slotNumber": 16,
+          "bikeId": null
+        },
+        "slot_17": {
+          "slotNumber": 17,
+          "bikeId": "bike_5_17"
+        },
+        "slot_18": {
+          "slotNumber": 18,
+          "bikeId": null
+        },
+        "slot_19": {
+          "slotNumber": 19,
+          "bikeId": "bike_5_19"
+        },
+        "slot_20": {
+          "slotNumber": 20,
+          "bikeId": null
+        },
+        "slot_21": {
+          "slotNumber": 21,
+          "bikeId": "bike_5_21"
+        },
+        "slot_22": {
+          "slotNumber": 22,
+          "bikeId": null
+        },
+        "slot_23": {
+          "slotNumber": 23,
+          "bikeId": "bike_5_23"
+        },
+        "slot_24": {
+          "slotNumber": 24,
+          "bikeId": null
+        },
+        "slot_25": {
+          "slotNumber": 25,
+          "bikeId": "bike_5_25"
+        },
+        "slot_26": {
+          "slotNumber": 26,
+          "bikeId": null
+        },
+        "slot_27": {
+          "slotNumber": 27,
+          "bikeId": "bike_5_27"
+        },
+        "slot_28": {
+          "slotNumber": 28,
+          "bikeId": null
+        },
+        "slot_29": {
+          "slotNumber": 29,
+          "bikeId": "bike_5_29"
+        },
+        "slot_30": {
+          "slotNumber": 30,
+          "bikeId": null
+        },
+        "slot_31": {
+          "slotNumber": 31,
+          "bikeId": "bike_5_31"
+        },
+        "slot_32": {
+          "slotNumber": 32,
+          "bikeId": null
+        },
+        "slot_33": {
+          "slotNumber": 33,
+          "bikeId": "bike_5_33"
+        },
+        "slot_34": {
+          "slotNumber": 34,
+          "bikeId": null
+        },
+        "slot_35": {
+          "slotNumber": 35,
+          "bikeId": "bike_5_35"
+        },
+        "slot_36": {
+          "slotNumber": 36,
+          "bikeId": null
+        },
+        "slot_37": {
+          "slotNumber": 37,
+          "bikeId": "bike_5_37"
+        },
+        "slot_38": {
+          "slotNumber": 38,
+          "bikeId": null
+        },
+        "slot_39": {
+          "slotNumber": 39,
+          "bikeId": "bike_5_39"
+        },
+        "slot_40": {
+          "slotNumber": 40,
+          "bikeId": null
+        }
+      }
+    },
+    "station_6": {
+      "name": "New Market",
+      "street": "Prey Nokor St. (126)",
+      "lat": 11.570322,
+      "lng": 104.91999,
+      "slots": {
+        "slot_1": {
+          "slotNumber": 1,
+          "bikeId": "bike_6_1"
+        },
+        "slot_2": {
+          "slotNumber": 2,
+          "bikeId": null
+        },
+        "slot_3": {
+          "slotNumber": 3,
+          "bikeId": "bike_6_3"
+        },
+        "slot_4": {
+          "slotNumber": 4,
+          "bikeId": null
+        },
+        "slot_5": {
+          "slotNumber": 5,
+          "bikeId": "bike_6_5"
+        },
+        "slot_6": {
+          "slotNumber": 6,
+          "bikeId": null
+        },
+        "slot_7": {
+          "slotNumber": 7,
+          "bikeId": "bike_6_7"
+        },
+        "slot_8": {
+          "slotNumber": 8,
+          "bikeId": null
+        },
+        "slot_9": {
+          "slotNumber": 9,
+          "bikeId": "bike_6_9"
+        },
+        "slot_10": {
+          "slotNumber": 10,
+          "bikeId": null
+        },
+        "slot_11": {
+          "slotNumber": 11,
+          "bikeId": "bike_6_11"
+        },
+        "slot_12": {
+          "slotNumber": 12,
+          "bikeId": null
+        },
+        "slot_13": {
+          "slotNumber": 13,
+          "bikeId": "bike_6_13"
+        },
+        "slot_14": {
+          "slotNumber": 14,
+          "bikeId": null
+        },
+        "slot_15": {
+          "slotNumber": 15,
+          "bikeId": "bike_6_15"
+        },
+        "slot_16": {
+          "slotNumber": 16,
+          "bikeId": null
+        },
+        "slot_17": {
+          "slotNumber": 17,
+          "bikeId": "bike_6_17"
+        },
+        "slot_18": {
+          "slotNumber": 18,
+          "bikeId": null
+        },
+        "slot_19": {
+          "slotNumber": 19,
+          "bikeId": "bike_6_19"
+        },
+        "slot_20": {
+          "slotNumber": 20,
+          "bikeId": null
+        },
+        "slot_21": {
+          "slotNumber": 21,
+          "bikeId": "bike_6_21"
+        },
+        "slot_22": {
+          "slotNumber": 22,
+          "bikeId": null
+        },
+        "slot_23": {
+          "slotNumber": 23,
+          "bikeId": "bike_6_23"
+        },
+        "slot_24": {
+          "slotNumber": 24,
+          "bikeId": null
+        },
+        "slot_25": {
+          "slotNumber": 25,
+          "bikeId": "bike_6_25"
+        },
+        "slot_26": {
+          "slotNumber": 26,
+          "bikeId": null
+        },
+        "slot_27": {
+          "slotNumber": 27,
+          "bikeId": "bike_6_27"
+        },
+        "slot_28": {
+          "slotNumber": 28,
+          "bikeId": null
+        },
+        "slot_29": {
+          "slotNumber": 29,
+          "bikeId": "bike_6_29"
+        },
+        "slot_30": {
+          "slotNumber": 30,
+          "bikeId": null
+        },
+        "slot_31": {
+          "slotNumber": 31,
+          "bikeId": "bike_6_31"
+        },
+        "slot_32": {
+          "slotNumber": 32,
+          "bikeId": null
+        },
+        "slot_33": {
+          "slotNumber": 33,
+          "bikeId": "bike_6_33"
+        },
+        "slot_34": {
+          "slotNumber": 34,
+          "bikeId": null
+        },
+        "slot_35": {
+          "slotNumber": 35,
+          "bikeId": "bike_6_35"
+        },
+        "slot_36": {
+          "slotNumber": 36,
+          "bikeId": null
+        },
+        "slot_37": {
+          "slotNumber": 37,
+          "bikeId": "bike_6_37"
+        },
+        "slot_38": {
+          "slotNumber": 38,
+          "bikeId": null
+        },
+        "slot_39": {
+          "slotNumber": 39,
+          "bikeId": "bike_6_39"
+        },
+        "slot_40": {
+          "slotNumber": 40,
+          "bikeId": null
+        }
+      }
+    },
+    "station_7": {
+      "name": "Independence Monument",
+      "street": "Preah Norodom Blvd",
+      "lat": 11.556917,
+      "lng": 104.927841,
+      "slots": {
+        "slot_1": {
+          "slotNumber": 1,
+          "bikeId": "bike_7_1"
+        },
+        "slot_2": {
+          "slotNumber": 2,
+          "bikeId": null
+        },
+        "slot_3": {
+          "slotNumber": 3,
+          "bikeId": "bike_7_3"
+        },
+        "slot_4": {
+          "slotNumber": 4,
+          "bikeId": null
+        },
+        "slot_5": {
+          "slotNumber": 5,
+          "bikeId": "bike_7_5"
+        },
+        "slot_6": {
+          "slotNumber": 6,
+          "bikeId": null
+        },
+        "slot_7": {
+          "slotNumber": 7,
+          "bikeId": "bike_7_7"
+        },
+        "slot_8": {
+          "slotNumber": 8,
+          "bikeId": null
+        },
+        "slot_9": {
+          "slotNumber": 9,
+          "bikeId": "bike_7_9"
+        },
+        "slot_10": {
+          "slotNumber": 10,
+          "bikeId": null
+        },
+        "slot_11": {
+          "slotNumber": 11,
+          "bikeId": "bike_7_11"
+        },
+        "slot_12": {
+          "slotNumber": 12,
+          "bikeId": null
+        },
+        "slot_13": {
+          "slotNumber": 13,
+          "bikeId": "bike_7_13"
+        },
+        "slot_14": {
+          "slotNumber": 14,
+          "bikeId": null
+        },
+        "slot_15": {
+          "slotNumber": 15,
+          "bikeId": "bike_7_15"
+        },
+        "slot_16": {
+          "slotNumber": 16,
+          "bikeId": null
+        },
+        "slot_17": {
+          "slotNumber": 17,
+          "bikeId": "bike_7_17"
+        },
+        "slot_18": {
+          "slotNumber": 18,
+          "bikeId": null
+        },
+        "slot_19": {
+          "slotNumber": 19,
+          "bikeId": "bike_7_19"
+        },
+        "slot_20": {
+          "slotNumber": 20,
+          "bikeId": null
+        },
+        "slot_21": {
+          "slotNumber": 21,
+          "bikeId": "bike_7_21"
+        },
+        "slot_22": {
+          "slotNumber": 22,
+          "bikeId": null
+        },
+        "slot_23": {
+          "slotNumber": 23,
+          "bikeId": "bike_7_23"
+        },
+        "slot_24": {
+          "slotNumber": 24,
+          "bikeId": null
+        },
+        "slot_25": {
+          "slotNumber": 25,
+          "bikeId": "bike_7_25"
+        },
+        "slot_26": {
+          "slotNumber": 26,
+          "bikeId": null
+        },
+        "slot_27": {
+          "slotNumber": 27,
+          "bikeId": "bike_7_27"
+        },
+        "slot_28": {
+          "slotNumber": 28,
+          "bikeId": null
+        },
+        "slot_29": {
+          "slotNumber": 29,
+          "bikeId": "bike_7_29"
+        },
+        "slot_30": {
+          "slotNumber": 30,
+          "bikeId": null
+        },
+        "slot_31": {
+          "slotNumber": 31,
+          "bikeId": "bike_7_31"
+        },
+        "slot_32": {
+          "slotNumber": 32,
+          "bikeId": null
+        },
+        "slot_33": {
+          "slotNumber": 33,
+          "bikeId": "bike_7_33"
+        },
+        "slot_34": {
+          "slotNumber": 34,
+          "bikeId": null
+        },
+        "slot_35": {
+          "slotNumber": 35,
+          "bikeId": "bike_7_35"
+        },
+        "slot_36": {
+          "slotNumber": 36,
+          "bikeId": null
+        },
+        "slot_37": {
+          "slotNumber": 37,
+          "bikeId": "bike_7_37"
+        },
+        "slot_38": {
+          "slotNumber": 38,
+          "bikeId": null
+        },
+        "slot_39": {
+          "slotNumber": 39,
+          "bikeId": "bike_7_39"
+        },
+        "slot_40": {
+          "slotNumber": 40,
+          "bikeId": null
+        }
+      }
+    },
+    "station_8": {
+      "name": "Khos Pich",
+      "street": "Park Ave",
+      "lat": 11.551756,
+      "lng": 104.942294,
+      "slots": {
+        "slot_1": {
+          "slotNumber": 1,
+          "bikeId": "bike_8_1"
+        },
+        "slot_2": {
+          "slotNumber": 2,
+          "bikeId": null
+        },
+        "slot_3": {
+          "slotNumber": 3,
+          "bikeId": "bike_8_3"
+        },
+        "slot_4": {
+          "slotNumber": 4,
+          "bikeId": null
+        },
+        "slot_5": {
+          "slotNumber": 5,
+          "bikeId": "bike_8_5"
+        },
+        "slot_6": {
+          "slotNumber": 6,
+          "bikeId": null
+        },
+        "slot_7": {
+          "slotNumber": 7,
+          "bikeId": "bike_8_7"
+        },
+        "slot_8": {
+          "slotNumber": 8,
+          "bikeId": null
+        },
+        "slot_9": {
+          "slotNumber": 9,
+          "bikeId": "bike_8_9"
+        },
+        "slot_10": {
+          "slotNumber": 10,
+          "bikeId": null
+        },
+        "slot_11": {
+          "slotNumber": 11,
+          "bikeId": "bike_8_11"
+        },
+        "slot_12": {
+          "slotNumber": 12,
+          "bikeId": null
+        },
+        "slot_13": {
+          "slotNumber": 13,
+          "bikeId": "bike_8_13"
+        },
+        "slot_14": {
+          "slotNumber": 14,
+          "bikeId": null
+        },
+        "slot_15": {
+          "slotNumber": 15,
+          "bikeId": "bike_8_15"
+        },
+        "slot_16": {
+          "slotNumber": 16,
+          "bikeId": null
+        },
+        "slot_17": {
+          "slotNumber": 17,
+          "bikeId": "bike_8_17"
+        },
+        "slot_18": {
+          "slotNumber": 18,
+          "bikeId": null
+        },
+        "slot_19": {
+          "slotNumber": 19,
+          "bikeId": "bike_8_19"
+        },
+        "slot_20": {
+          "slotNumber": 20,
+          "bikeId": null
+        },
+        "slot_21": {
+          "slotNumber": 21,
+          "bikeId": "bike_8_21"
+        },
+        "slot_22": {
+          "slotNumber": 22,
+          "bikeId": null
+        },
+        "slot_23": {
+          "slotNumber": 23,
+          "bikeId": "bike_8_23"
+        },
+        "slot_24": {
+          "slotNumber": 24,
+          "bikeId": null
+        },
+        "slot_25": {
+          "slotNumber": 25,
+          "bikeId": "bike_8_25"
+        },
+        "slot_26": {
+          "slotNumber": 26,
+          "bikeId": null
+        },
+        "slot_27": {
+          "slotNumber": 27,
+          "bikeId": "bike_8_27"
+        },
+        "slot_28": {
+          "slotNumber": 28,
+          "bikeId": null
+        },
+        "slot_29": {
+          "slotNumber": 29,
+          "bikeId": "bike_8_29"
+        },
+        "slot_30": {
+          "slotNumber": 30,
+          "bikeId": null
+        },
+        "slot_31": {
+          "slotNumber": 31,
+          "bikeId": "bike_8_31"
+        },
+        "slot_32": {
+          "slotNumber": 32,
+          "bikeId": null
+        },
+        "slot_33": {
+          "slotNumber": 33,
+          "bikeId": "bike_8_33"
+        },
+        "slot_34": {
+          "slotNumber": 34,
+          "bikeId": null
+        },
+        "slot_35": {
+          "slotNumber": 35,
+          "bikeId": "bike_8_35"
+        },
+        "slot_36": {
+          "slotNumber": 36,
+          "bikeId": null
+        },
+        "slot_37": {
+          "slotNumber": 37,
+          "bikeId": "bike_8_37"
+        },
+        "slot_38": {
+          "slotNumber": 38,
+          "bikeId": null
+        },
+        "slot_39": {
+          "slotNumber": 39,
+          "bikeId": "bike_8_39"
+        },
+        "slot_40": {
+          "slotNumber": 40,
+          "bikeId": null
+        }
+      }
+    },
+    "station_9": {
+      "name": "National Olympic Stadium",
+      "street": "Charles de Gaulle Blvd (217)",
+      "lat": 11.557821,
+      "lng": 104.908914,
+      "slots": {
+        "slot_1": {
+          "slotNumber": 1,
+          "bikeId": "bike_9_1"
+        },
+        "slot_2": {
+          "slotNumber": 2,
+          "bikeId": null
+        },
+        "slot_3": {
+          "slotNumber": 3,
+          "bikeId": "bike_9_3"
+        },
+        "slot_4": {
+          "slotNumber": 4,
+          "bikeId": null
+        },
+        "slot_5": {
+          "slotNumber": 5,
+          "bikeId": "bike_9_5"
+        },
+        "slot_6": {
+          "slotNumber": 6,
+          "bikeId": null
+        },
+        "slot_7": {
+          "slotNumber": 7,
+          "bikeId": "bike_9_7"
+        },
+        "slot_8": {
+          "slotNumber": 8,
+          "bikeId": null
+        },
+        "slot_9": {
+          "slotNumber": 9,
+          "bikeId": "bike_9_9"
+        },
+        "slot_10": {
+          "slotNumber": 10,
+          "bikeId": null
+        },
+        "slot_11": {
+          "slotNumber": 11,
+          "bikeId": "bike_9_11"
+        },
+        "slot_12": {
+          "slotNumber": 12,
+          "bikeId": null
+        },
+        "slot_13": {
+          "slotNumber": 13,
+          "bikeId": "bike_9_13"
+        },
+        "slot_14": {
+          "slotNumber": 14,
+          "bikeId": null
+        },
+        "slot_15": {
+          "slotNumber": 15,
+          "bikeId": "bike_9_15"
+        },
+        "slot_16": {
+          "slotNumber": 16,
+          "bikeId": null
+        },
+        "slot_17": {
+          "slotNumber": 17,
+          "bikeId": "bike_9_17"
+        },
+        "slot_18": {
+          "slotNumber": 18,
+          "bikeId": null
+        },
+        "slot_19": {
+          "slotNumber": 19,
+          "bikeId": "bike_9_19"
+        },
+        "slot_20": {
+          "slotNumber": 20,
+          "bikeId": null
+        },
+        "slot_21": {
+          "slotNumber": 21,
+          "bikeId": "bike_9_21"
+        },
+        "slot_22": {
+          "slotNumber": 22,
+          "bikeId": null
+        },
+        "slot_23": {
+          "slotNumber": 23,
+          "bikeId": "bike_9_23"
+        },
+        "slot_24": {
+          "slotNumber": 24,
+          "bikeId": null
+        },
+        "slot_25": {
+          "slotNumber": 25,
+          "bikeId": "bike_9_25"
+        },
+        "slot_26": {
+          "slotNumber": 26,
+          "bikeId": null
+        },
+        "slot_27": {
+          "slotNumber": 27,
+          "bikeId": "bike_9_27"
+        },
+        "slot_28": {
+          "slotNumber": 28,
+          "bikeId": null
+        },
+        "slot_29": {
+          "slotNumber": 29,
+          "bikeId": "bike_9_29"
+        },
+        "slot_30": {
+          "slotNumber": 30,
+          "bikeId": null
+        },
+        "slot_31": {
+          "slotNumber": 31,
+          "bikeId": "bike_9_31"
+        },
+        "slot_32": {
+          "slotNumber": 32,
+          "bikeId": null
+        },
+        "slot_33": {
+          "slotNumber": 33,
+          "bikeId": "bike_9_33"
+        },
+        "slot_34": {
+          "slotNumber": 34,
+          "bikeId": null
+        },
+        "slot_35": {
+          "slotNumber": 35,
+          "bikeId": "bike_9_35"
+        },
+        "slot_36": {
+          "slotNumber": 36,
+          "bikeId": null
+        },
+        "slot_37": {
+          "slotNumber": 37,
+          "bikeId": "bike_9_37"
+        },
+        "slot_38": {
+          "slotNumber": 38,
+          "bikeId": null
+        },
+        "slot_39": {
+          "slotNumber": 39,
+          "bikeId": "bike_9_39"
+        },
+        "slot_40": {
+          "slotNumber": 40,
+          "bikeId": null
+        }
+      }
+    },
+    "station_10": {
+      "name": "ITC Cambodia",
+      "street": "Russian Federation Blvd (110)",
+      "lat": 11.569293,
+      "lng": 104.897769,
+      "slots": {
+        "slot_1": {
+          "slotNumber": 1,
+          "bikeId": "bike_10_1"
+        },
+        "slot_2": {
+          "slotNumber": 2,
+          "bikeId": null
+        },
+        "slot_3": {
+          "slotNumber": 3,
+          "bikeId": "bike_10_3"
+        },
+        "slot_4": {
+          "slotNumber": 4,
+          "bikeId": null
+        },
+        "slot_5": {
+          "slotNumber": 5,
+          "bikeId": "bike_10_5"
+        },
+        "slot_6": {
+          "slotNumber": 6,
+          "bikeId": null
+        },
+        "slot_7": {
+          "slotNumber": 7,
+          "bikeId": "bike_10_7"
+        },
+        "slot_8": {
+          "slotNumber": 8,
+          "bikeId": null
+        },
+        "slot_9": {
+          "slotNumber": 9,
+          "bikeId": "bike_10_9"
+        },
+        "slot_10": {
+          "slotNumber": 10,
+          "bikeId": null
+        },
+        "slot_11": {
+          "slotNumber": 11,
+          "bikeId": "bike_10_11"
+        },
+        "slot_12": {
+          "slotNumber": 12,
+          "bikeId": null
+        },
+        "slot_13": {
+          "slotNumber": 13,
+          "bikeId": "bike_10_13"
+        },
+        "slot_14": {
+          "slotNumber": 14,
+          "bikeId": null
+        },
+        "slot_15": {
+          "slotNumber": 15,
+          "bikeId": "bike_10_15"
+        },
+        "slot_16": {
+          "slotNumber": 16,
+          "bikeId": null
+        },
+        "slot_17": {
+          "slotNumber": 17,
+          "bikeId": "bike_10_17"
+        },
+        "slot_18": {
+          "slotNumber": 18,
+          "bikeId": null
+        },
+        "slot_19": {
+          "slotNumber": 19,
+          "bikeId": "bike_10_19"
+        },
+        "slot_20": {
+          "slotNumber": 20,
+          "bikeId": null
+        },
+        "slot_21": {
+          "slotNumber": 21,
+          "bikeId": "bike_10_21"
+        },
+        "slot_22": {
+          "slotNumber": 22,
+          "bikeId": null
+        },
+        "slot_23": {
+          "slotNumber": 23,
+          "bikeId": "bike_10_23"
+        },
+        "slot_24": {
+          "slotNumber": 24,
+          "bikeId": null
+        },
+        "slot_25": {
+          "slotNumber": 25,
+          "bikeId": "bike_10_25"
+        },
+        "slot_26": {
+          "slotNumber": 26,
+          "bikeId": null
+        },
+        "slot_27": {
+          "slotNumber": 27,
+          "bikeId": "bike_10_27"
+        },
+        "slot_28": {
+          "slotNumber": 28,
+          "bikeId": null
+        },
+        "slot_29": {
+          "slotNumber": 29,
+          "bikeId": "bike_10_29"
+        },
+        "slot_30": {
+          "slotNumber": 30,
+          "bikeId": null
+        },
+        "slot_31": {
+          "slotNumber": 31,
+          "bikeId": "bike_10_31"
+        },
+        "slot_32": {
+          "slotNumber": 32,
+          "bikeId": null
+        },
+        "slot_33": {
+          "slotNumber": 33,
+          "bikeId": "bike_10_33"
+        },
+        "slot_34": {
+          "slotNumber": 34,
+          "bikeId": null
+        },
+        "slot_35": {
+          "slotNumber": 35,
+          "bikeId": "bike_10_35"
+        },
+        "slot_36": {
+          "slotNumber": 36,
+          "bikeId": null
+        },
+        "slot_37": {
+          "slotNumber": 37,
+          "bikeId": "bike_10_37"
+        },
+        "slot_38": {
+          "slotNumber": 38,
+          "bikeId": null
+        },
+        "slot_39": {
+          "slotNumber": 39,
+          "bikeId": "bike_10_39"
+        },
+        "slot_40": {
+          "slotNumber": 40,
+          "bikeId": null
+        }
+      }
+    }
+  },
+  "bikes": {
+    "bike_1_1": {
+      "rating": 4,
+      "stationId": "station_1",
+      "slotId": "slot_1"
+    },
+    "bike_1_3": {
+      "rating": 5,
+      "stationId": "station_1",
+      "slotId": "slot_3"
+    },
+    "bike_1_5": {
+      "rating": 3,
+      "stationId": "station_1",
+      "slotId": "slot_5"
+    },
+    "bike_1_7": {
+      "rating": 4,
+      "stationId": "station_1",
+      "slotId": "slot_7"
+    },
+    "bike_1_9": {
+      "rating": 5,
+      "stationId": "station_1",
+      "slotId": "slot_9"
+    },
+    "bike_1_11": {
+      "rating": 4,
+      "stationId": "station_1",
+      "slotId": "slot_11"
+    },
+    "bike_1_13": {
+      "rating": 3,
+      "stationId": "station_1",
+      "slotId": "slot_13"
+    },
+    "bike_1_15": {
+      "rating": 5,
+      "stationId": "station_1",
+      "slotId": "slot_15"
+    },
+    "bike_1_17": {
+      "rating": 4,
+      "stationId": "station_1",
+      "slotId": "slot_17"
+    },
+    "bike_1_19": {
+      "rating": 5,
+      "stationId": "station_1",
+      "slotId": "slot_19"
+    },
+    "bike_1_21": {
+      "rating": 4,
+      "stationId": "station_1",
+      "slotId": "slot_21"
+    },
+    "bike_1_23": {
+      "rating": 3,
+      "stationId": "station_1",
+      "slotId": "slot_23"
+    },
+    "bike_1_25": {
+      "rating": 5,
+      "stationId": "station_1",
+      "slotId": "slot_25"
+    },
+    "bike_1_27": {
+      "rating": 4,
+      "stationId": "station_1",
+      "slotId": "slot_27"
+    },
+    "bike_1_29": {
+      "rating": 5,
+      "stationId": "station_1",
+      "slotId": "slot_29"
+    },
+    "bike_1_31": {
+      "rating": 4,
+      "stationId": "station_1",
+      "slotId": "slot_31"
+    },
+    "bike_1_33": {
+      "rating": 3,
+      "stationId": "station_1",
+      "slotId": "slot_33"
+    },
+    "bike_1_35": {
+      "rating": 5,
+      "stationId": "station_1",
+      "slotId": "slot_35"
+    },
+    "bike_1_37": {
+      "rating": 4,
+      "stationId": "station_1",
+      "slotId": "slot_37"
+    },
+    "bike_1_39": {
+      "rating": 5,
+      "stationId": "station_1",
+      "slotId": "slot_39"
+    },
+    "bike_2_1": {
+      "rating": 4,
+      "stationId": "station_2",
+      "slotId": "slot_1"
+    },
+    "bike_2_3": {
+      "rating": 5,
+      "stationId": "station_2",
+      "slotId": "slot_3"
+    },
+    "bike_2_5": {
+      "rating": 3,
+      "stationId": "station_2",
+      "slotId": "slot_5"
+    },
+    "bike_2_7": {
+      "rating": 4,
+      "stationId": "station_2",
+      "slotId": "slot_7"
+    },
+    "bike_2_9": {
+      "rating": 5,
+      "stationId": "station_2",
+      "slotId": "slot_9"
+    },
+    "bike_2_11": {
+      "rating": 4,
+      "stationId": "station_2",
+      "slotId": "slot_11"
+    },
+    "bike_2_13": {
+      "rating": 3,
+      "stationId": "station_2",
+      "slotId": "slot_13"
+    },
+    "bike_2_15": {
+      "rating": 5,
+      "stationId": "station_2",
+      "slotId": "slot_15"
+    },
+    "bike_2_17": {
+      "rating": 4,
+      "stationId": "station_2",
+      "slotId": "slot_17"
+    },
+    "bike_2_19": {
+      "rating": 5,
+      "stationId": "station_2",
+      "slotId": "slot_19"
+    },
+    "bike_2_21": {
+      "rating": 4,
+      "stationId": "station_2",
+      "slotId": "slot_21"
+    },
+    "bike_2_23": {
+      "rating": 3,
+      "stationId": "station_2",
+      "slotId": "slot_23"
+    },
+    "bike_2_25": {
+      "rating": 5,
+      "stationId": "station_2",
+      "slotId": "slot_25"
+    },
+    "bike_2_27": {
+      "rating": 4,
+      "stationId": "station_2",
+      "slotId": "slot_27"
+    },
+    "bike_2_29": {
+      "rating": 5,
+      "stationId": "station_2",
+      "slotId": "slot_29"
+    },
+    "bike_2_31": {
+      "rating": 4,
+      "stationId": "station_2",
+      "slotId": "slot_31"
+    },
+    "bike_2_33": {
+      "rating": 3,
+      "stationId": "station_2",
+      "slotId": "slot_33"
+    },
+    "bike_2_35": {
+      "rating": 5,
+      "stationId": "station_2",
+      "slotId": "slot_35"
+    },
+    "bike_2_37": {
+      "rating": 4,
+      "stationId": "station_2",
+      "slotId": "slot_37"
+    },
+    "bike_2_39": {
+      "rating": 5,
+      "stationId": "station_2",
+      "slotId": "slot_39"
+    },
+    "bike_3_1": {
+      "rating": 4,
+      "stationId": "station_3",
+      "slotId": "slot_1"
+    },
+    "bike_3_3": {
+      "rating": 5,
+      "stationId": "station_3",
+      "slotId": "slot_3"
+    },
+    "bike_3_5": {
+      "rating": 3,
+      "stationId": "station_3",
+      "slotId": "slot_5"
+    },
+    "bike_3_7": {
+      "rating": 4,
+      "stationId": "station_3",
+      "slotId": "slot_7"
+    },
+    "bike_3_9": {
+      "rating": 5,
+      "stationId": "station_3",
+      "slotId": "slot_9"
+    },
+    "bike_3_11": {
+      "rating": 4,
+      "stationId": "station_3",
+      "slotId": "slot_11"
+    },
+    "bike_3_13": {
+      "rating": 3,
+      "stationId": "station_3",
+      "slotId": "slot_13"
+    },
+    "bike_3_15": {
+      "rating": 5,
+      "stationId": "station_3",
+      "slotId": "slot_15"
+    },
+    "bike_3_17": {
+      "rating": 4,
+      "stationId": "station_3",
+      "slotId": "slot_17"
+    },
+    "bike_3_19": {
+      "rating": 5,
+      "stationId": "station_3",
+      "slotId": "slot_19"
+    },
+    "bike_3_21": {
+      "rating": 4,
+      "stationId": "station_3",
+      "slotId": "slot_21"
+    },
+    "bike_3_23": {
+      "rating": 3,
+      "stationId": "station_3",
+      "slotId": "slot_23"
+    },
+    "bike_3_25": {
+      "rating": 5,
+      "stationId": "station_3",
+      "slotId": "slot_25"
+    },
+    "bike_3_27": {
+      "rating": 4,
+      "stationId": "station_3",
+      "slotId": "slot_27"
+    },
+    "bike_3_29": {
+      "rating": 5,
+      "stationId": "station_3",
+      "slotId": "slot_29"
+    },
+    "bike_3_31": {
+      "rating": 4,
+      "stationId": "station_3",
+      "slotId": "slot_31"
+    },
+    "bike_3_33": {
+      "rating": 3,
+      "stationId": "station_3",
+      "slotId": "slot_33"
+    },
+    "bike_3_35": {
+      "rating": 5,
+      "stationId": "station_3",
+      "slotId": "slot_35"
+    },
+    "bike_3_37": {
+      "rating": 4,
+      "stationId": "station_3",
+      "slotId": "slot_37"
+    },
+    "bike_3_39": {
+      "rating": 5,
+      "stationId": "station_3",
+      "slotId": "slot_39"
+    },
+    "bike_4_1": {
+      "rating": 4,
+      "stationId": "station_4",
+      "slotId": "slot_1"
+    },
+    "bike_4_3": {
+      "rating": 5,
+      "stationId": "station_4",
+      "slotId": "slot_3"
+    },
+    "bike_4_5": {
+      "rating": 3,
+      "stationId": "station_4",
+      "slotId": "slot_5"
+    },
+    "bike_4_7": {
+      "rating": 4,
+      "stationId": "station_4",
+      "slotId": "slot_7"
+    },
+    "bike_4_9": {
+      "rating": 5,
+      "stationId": "station_4",
+      "slotId": "slot_9"
+    },
+    "bike_4_11": {
+      "rating": 4,
+      "stationId": "station_4",
+      "slotId": "slot_11"
+    },
+    "bike_4_13": {
+      "rating": 3,
+      "stationId": "station_4",
+      "slotId": "slot_13"
+    },
+    "bike_4_15": {
+      "rating": 5,
+      "stationId": "station_4",
+      "slotId": "slot_15"
+    },
+    "bike_4_17": {
+      "rating": 4,
+      "stationId": "station_4",
+      "slotId": "slot_17"
+    },
+    "bike_4_19": {
+      "rating": 5,
+      "stationId": "station_4",
+      "slotId": "slot_19"
+    },
+    "bike_4_21": {
+      "rating": 4,
+      "stationId": "station_4",
+      "slotId": "slot_21"
+    },
+    "bike_4_23": {
+      "rating": 3,
+      "stationId": "station_4",
+      "slotId": "slot_23"
+    },
+    "bike_4_25": {
+      "rating": 5,
+      "stationId": "station_4",
+      "slotId": "slot_25"
+    },
+    "bike_4_27": {
+      "rating": 4,
+      "stationId": "station_4",
+      "slotId": "slot_27"
+    },
+    "bike_4_29": {
+      "rating": 5,
+      "stationId": "station_4",
+      "slotId": "slot_29"
+    },
+    "bike_4_31": {
+      "rating": 4,
+      "stationId": "station_4",
+      "slotId": "slot_31"
+    },
+    "bike_4_33": {
+      "rating": 3,
+      "stationId": "station_4",
+      "slotId": "slot_33"
+    },
+    "bike_4_35": {
+      "rating": 5,
+      "stationId": "station_4",
+      "slotId": "slot_35"
+    },
+    "bike_4_37": {
+      "rating": 4,
+      "stationId": "station_4",
+      "slotId": "slot_37"
+    },
+    "bike_4_39": {
+      "rating": 5,
+      "stationId": "station_4",
+      "slotId": "slot_39"
+    },
+    "bike_5_1": {
+      "rating": 4,
+      "stationId": "station_5",
+      "slotId": "slot_1"
+    },
+    "bike_5_3": {
+      "rating": 5,
+      "stationId": "station_5",
+      "slotId": "slot_3"
+    },
+    "bike_5_5": {
+      "rating": 3,
+      "stationId": "station_5",
+      "slotId": "slot_5"
+    },
+    "bike_5_7": {
+      "rating": 4,
+      "stationId": "station_5",
+      "slotId": "slot_7"
+    },
+    "bike_5_9": {
+      "rating": 5,
+      "stationId": "station_5",
+      "slotId": "slot_9"
+    },
+    "bike_5_11": {
+      "rating": 4,
+      "stationId": "station_5",
+      "slotId": "slot_11"
+    },
+    "bike_5_13": {
+      "rating": 3,
+      "stationId": "station_5",
+      "slotId": "slot_13"
+    },
+    "bike_5_15": {
+      "rating": 5,
+      "stationId": "station_5",
+      "slotId": "slot_15"
+    },
+    "bike_5_17": {
+      "rating": 4,
+      "stationId": "station_5",
+      "slotId": "slot_17"
+    },
+    "bike_5_19": {
+      "rating": 5,
+      "stationId": "station_5",
+      "slotId": "slot_19"
+    },
+    "bike_5_21": {
+      "rating": 4,
+      "stationId": "station_5",
+      "slotId": "slot_21"
+    },
+    "bike_5_23": {
+      "rating": 3,
+      "stationId": "station_5",
+      "slotId": "slot_23"
+    },
+    "bike_5_25": {
+      "rating": 5,
+      "stationId": "station_5",
+      "slotId": "slot_25"
+    },
+    "bike_5_27": {
+      "rating": 4,
+      "stationId": "station_5",
+      "slotId": "slot_27"
+    },
+    "bike_5_29": {
+      "rating": 5,
+      "stationId": "station_5",
+      "slotId": "slot_29"
+    },
+    "bike_5_31": {
+      "rating": 4,
+      "stationId": "station_5",
+      "slotId": "slot_31"
+    },
+    "bike_5_33": {
+      "rating": 3,
+      "stationId": "station_5",
+      "slotId": "slot_33"
+    },
+    "bike_5_35": {
+      "rating": 5,
+      "stationId": "station_5",
+      "slotId": "slot_35"
+    },
+    "bike_5_37": {
+      "rating": 4,
+      "stationId": "station_5",
+      "slotId": "slot_37"
+    },
+    "bike_5_39": {
+      "rating": 5,
+      "stationId": "station_5",
+      "slotId": "slot_39"
+    },
+    "bike_6_1": {
+      "rating": 4,
+      "stationId": "station_6",
+      "slotId": "slot_1"
+    },
+    "bike_6_3": {
+      "rating": 5,
+      "stationId": "station_6",
+      "slotId": "slot_3"
+    },
+    "bike_6_5": {
+      "rating": 3,
+      "stationId": "station_6",
+      "slotId": "slot_5"
+    },
+    "bike_6_7": {
+      "rating": 4,
+      "stationId": "station_6",
+      "slotId": "slot_7"
+    },
+    "bike_6_9": {
+      "rating": 5,
+      "stationId": "station_6",
+      "slotId": "slot_9"
+    },
+    "bike_6_11": {
+      "rating": 4,
+      "stationId": "station_6",
+      "slotId": "slot_11"
+    },
+    "bike_6_13": {
+      "rating": 3,
+      "stationId": "station_6",
+      "slotId": "slot_13"
+    },
+    "bike_6_15": {
+      "rating": 5,
+      "stationId": "station_6",
+      "slotId": "slot_15"
+    },
+    "bike_6_17": {
+      "rating": 4,
+      "stationId": "station_6",
+      "slotId": "slot_17"
+    },
+    "bike_6_19": {
+      "rating": 5,
+      "stationId": "station_6",
+      "slotId": "slot_19"
+    },
+    "bike_6_21": {
+      "rating": 4,
+      "stationId": "station_6",
+      "slotId": "slot_21"
+    },
+    "bike_6_23": {
+      "rating": 3,
+      "stationId": "station_6",
+      "slotId": "slot_23"
+    },
+    "bike_6_25": {
+      "rating": 5,
+      "stationId": "station_6",
+      "slotId": "slot_25"
+    },
+    "bike_6_27": {
+      "rating": 4,
+      "stationId": "station_6",
+      "slotId": "slot_27"
+    },
+    "bike_6_29": {
+      "rating": 5,
+      "stationId": "station_6",
+      "slotId": "slot_29"
+    },
+    "bike_6_31": {
+      "rating": 4,
+      "stationId": "station_6",
+      "slotId": "slot_31"
+    },
+    "bike_6_33": {
+      "rating": 3,
+      "stationId": "station_6",
+      "slotId": "slot_33"
+    },
+    "bike_6_35": {
+      "rating": 5,
+      "stationId": "station_6",
+      "slotId": "slot_35"
+    },
+    "bike_6_37": {
+      "rating": 4,
+      "stationId": "station_6",
+      "slotId": "slot_37"
+    },
+    "bike_6_39": {
+      "rating": 5,
+      "stationId": "station_6",
+      "slotId": "slot_39"
+    },
+    "bike_7_1": {
+      "rating": 4,
+      "stationId": "station_7",
+      "slotId": "slot_1"
+    },
+    "bike_7_3": {
+      "rating": 5,
+      "stationId": "station_7",
+      "slotId": "slot_3"
+    },
+    "bike_7_5": {
+      "rating": 3,
+      "stationId": "station_7",
+      "slotId": "slot_5"
+    },
+    "bike_7_7": {
+      "rating": 4,
+      "stationId": "station_7",
+      "slotId": "slot_7"
+    },
+    "bike_7_9": {
+      "rating": 5,
+      "stationId": "station_7",
+      "slotId": "slot_9"
+    },
+    "bike_7_11": {
+      "rating": 4,
+      "stationId": "station_7",
+      "slotId": "slot_11"
+    },
+    "bike_7_13": {
+      "rating": 3,
+      "stationId": "station_7",
+      "slotId": "slot_13"
+    },
+    "bike_7_15": {
+      "rating": 5,
+      "stationId": "station_7",
+      "slotId": "slot_15"
+    },
+    "bike_7_17": {
+      "rating": 4,
+      "stationId": "station_7",
+      "slotId": "slot_17"
+    },
+    "bike_7_19": {
+      "rating": 5,
+      "stationId": "station_7",
+      "slotId": "slot_19"
+    },
+    "bike_7_21": {
+      "rating": 4,
+      "stationId": "station_7",
+      "slotId": "slot_21"
+    },
+    "bike_7_23": {
+      "rating": 3,
+      "stationId": "station_7",
+      "slotId": "slot_23"
+    },
+    "bike_7_25": {
+      "rating": 5,
+      "stationId": "station_7",
+      "slotId": "slot_25"
+    },
+    "bike_7_27": {
+      "rating": 4,
+      "stationId": "station_7",
+      "slotId": "slot_27"
+    },
+    "bike_7_29": {
+      "rating": 5,
+      "stationId": "station_7",
+      "slotId": "slot_29"
+    },
+    "bike_7_31": {
+      "rating": 4,
+      "stationId": "station_7",
+      "slotId": "slot_31"
+    },
+    "bike_7_33": {
+      "rating": 3,
+      "stationId": "station_7",
+      "slotId": "slot_33"
+    },
+    "bike_7_35": {
+      "rating": 5,
+      "stationId": "station_7",
+      "slotId": "slot_35"
+    },
+    "bike_7_37": {
+      "rating": 4,
+      "stationId": "station_7",
+      "slotId": "slot_37"
+    },
+    "bike_7_39": {
+      "rating": 5,
+      "stationId": "station_7",
+      "slotId": "slot_39"
+    },
+    "bike_8_1": {
+      "rating": 4,
+      "stationId": "station_8",
+      "slotId": "slot_1"
+    },
+    "bike_8_3": {
+      "rating": 5,
+      "stationId": "station_8",
+      "slotId": "slot_3"
+    },
+    "bike_8_5": {
+      "rating": 3,
+      "stationId": "station_8",
+      "slotId": "slot_5"
+    },
+    "bike_8_7": {
+      "rating": 4,
+      "stationId": "station_8",
+      "slotId": "slot_7"
+    },
+    "bike_8_9": {
+      "rating": 5,
+      "stationId": "station_8",
+      "slotId": "slot_9"
+    },
+    "bike_8_11": {
+      "rating": 4,
+      "stationId": "station_8",
+      "slotId": "slot_11"
+    },
+    "bike_8_13": {
+      "rating": 3,
+      "stationId": "station_8",
+      "slotId": "slot_13"
+    },
+    "bike_8_15": {
+      "rating": 5,
+      "stationId": "station_8",
+      "slotId": "slot_15"
+    },
+    "bike_8_17": {
+      "rating": 4,
+      "stationId": "station_8",
+      "slotId": "slot_17"
+    },
+    "bike_8_19": {
+      "rating": 5,
+      "stationId": "station_8",
+      "slotId": "slot_19"
+    },
+    "bike_8_21": {
+      "rating": 4,
+      "stationId": "station_8",
+      "slotId": "slot_21"
+    },
+    "bike_8_23": {
+      "rating": 3,
+      "stationId": "station_8",
+      "slotId": "slot_23"
+    },
+    "bike_8_25": {
+      "rating": 5,
+      "stationId": "station_8",
+      "slotId": "slot_25"
+    },
+    "bike_8_27": {
+      "rating": 4,
+      "stationId": "station_8",
+      "slotId": "slot_27"
+    },
+    "bike_8_29": {
+      "rating": 5,
+      "stationId": "station_8",
+      "slotId": "slot_29"
+    },
+    "bike_8_31": {
+      "rating": 4,
+      "stationId": "station_8",
+      "slotId": "slot_31"
+    },
+    "bike_8_33": {
+      "rating": 3,
+      "stationId": "station_8",
+      "slotId": "slot_33"
+    },
+    "bike_8_35": {
+      "rating": 5,
+      "stationId": "station_8",
+      "slotId": "slot_35"
+    },
+    "bike_8_37": {
+      "rating": 4,
+      "stationId": "station_8",
+      "slotId": "slot_37"
+    },
+    "bike_8_39": {
+      "rating": 5,
+      "stationId": "station_8",
+      "slotId": "slot_39"
+    },
+    "bike_9_1": {
+      "rating": 4,
+      "stationId": "station_9",
+      "slotId": "slot_1"
+    },
+    "bike_9_3": {
+      "rating": 5,
+      "stationId": "station_9",
+      "slotId": "slot_3"
+    },
+    "bike_9_5": {
+      "rating": 3,
+      "stationId": "station_9",
+      "slotId": "slot_5"
+    },
+    "bike_9_7": {
+      "rating": 4,
+      "stationId": "station_9",
+      "slotId": "slot_7"
+    },
+    "bike_9_9": {
+      "rating": 5,
+      "stationId": "station_9",
+      "slotId": "slot_9"
+    },
+    "bike_9_11": {
+      "rating": 4,
+      "stationId": "station_9",
+      "slotId": "slot_11"
+    },
+    "bike_9_13": {
+      "rating": 3,
+      "stationId": "station_9",
+      "slotId": "slot_13"
+    },
+    "bike_9_15": {
+      "rating": 5,
+      "stationId": "station_9",
+      "slotId": "slot_15"
+    },
+    "bike_9_17": {
+      "rating": 4,
+      "stationId": "station_9",
+      "slotId": "slot_17"
+    },
+    "bike_9_19": {
+      "rating": 5,
+      "stationId": "station_9",
+      "slotId": "slot_19"
+    },
+    "bike_9_21": {
+      "rating": 4,
+      "stationId": "station_9",
+      "slotId": "slot_21"
+    },
+    "bike_9_23": {
+      "rating": 3,
+      "stationId": "station_9",
+      "slotId": "slot_23"
+    },
+    "bike_9_25": {
+      "rating": 5,
+      "stationId": "station_9",
+      "slotId": "slot_25"
+    },
+    "bike_9_27": {
+      "rating": 4,
+      "stationId": "station_9",
+      "slotId": "slot_27"
+    },
+    "bike_9_29": {
+      "rating": 5,
+      "stationId": "station_9",
+      "slotId": "slot_29"
+    },
+    "bike_9_31": {
+      "rating": 4,
+      "stationId": "station_9",
+      "slotId": "slot_31"
+    },
+    "bike_9_33": {
+      "rating": 3,
+      "stationId": "station_9",
+      "slotId": "slot_33"
+    },
+    "bike_9_35": {
+      "rating": 5,
+      "stationId": "station_9",
+      "slotId": "slot_35"
+    },
+    "bike_9_37": {
+      "rating": 4,
+      "stationId": "station_9",
+      "slotId": "slot_37"
+    },
+    "bike_9_39": {
+      "rating": 5,
+      "stationId": "station_9",
+      "slotId": "slot_39"
+    },
+    "bike_10_1": {
+      "rating": 4,
+      "stationId": "station_10",
+      "slotId": "slot_1"
+    },
+    "bike_10_3": {
+      "rating": 5,
+      "stationId": "station_10",
+      "slotId": "slot_3"
+    },
+    "bike_10_5": {
+      "rating": 3,
+      "stationId": "station_10",
+      "slotId": "slot_5"
+    },
+    "bike_10_7": {
+      "rating": 4,
+      "stationId": "station_10",
+      "slotId": "slot_7"
+    },
+    "bike_10_9": {
+      "rating": 5,
+      "stationId": "station_10",
+      "slotId": "slot_9"
+    },
+    "bike_10_11": {
+      "rating": 4,
+      "stationId": "station_10",
+      "slotId": "slot_11"
+    },
+    "bike_10_13": {
+      "rating": 3,
+      "stationId": "station_10",
+      "slotId": "slot_13"
+    },
+    "bike_10_15": {
+      "rating": 5,
+      "stationId": "station_10",
+      "slotId": "slot_15"
+    },
+    "bike_10_17": {
+      "rating": 4,
+      "stationId": "station_10",
+      "slotId": "slot_17"
+    },
+    "bike_10_19": {
+      "rating": 5,
+      "stationId": "station_10",
+      "slotId": "slot_19"
+    },
+    "bike_10_21": {
+      "rating": 4,
+      "stationId": "station_10",
+      "slotId": "slot_21"
+    },
+    "bike_10_23": {
+      "rating": 3,
+      "stationId": "station_10",
+      "slotId": "slot_23"
+    },
+    "bike_10_25": {
+      "rating": 5,
+      "stationId": "station_10",
+      "slotId": "slot_25"
+    },
+    "bike_10_27": {
+      "rating": 4,
+      "stationId": "station_10",
+      "slotId": "slot_27"
+    },
+    "bike_10_29": {
+      "rating": 5,
+      "stationId": "station_10",
+      "slotId": "slot_29"
+    },
+    "bike_10_31": {
+      "rating": 4,
+      "stationId": "station_10",
+      "slotId": "slot_31"
+    },
+    "bike_10_33": {
+      "rating": 3,
+      "stationId": "station_10",
+      "slotId": "slot_33"
+    },
+    "bike_10_35": {
+      "rating": 5,
+      "stationId": "station_10",
+      "slotId": "slot_35"
+    },
+    "bike_10_37": {
+      "rating": 4,
+      "stationId": "station_10",
+      "slotId": "slot_37"
+    },
+    "bike_10_39": {
+      "rating": 5,
+      "stationId": "station_10",
+      "slotId": "slot_39"
+    }
+  },
+  "users": {
+    "u1": {
+      "name": "Ronan The Best",
+      "imageUrl": "https://i.pinimg.com/736x/25/ee/a6/25eea66cb5e58aa22be30cc65198d3d5.jpg",
+      "subscriptionId": null,
+      "currentBookingId": null
+    },
+    "u2": {
+      "name": "Dara Chan",
+      "imageUrl": "https://example.com/user2.jpg",
+      "subscriptionId": "sub_2",
+      "currentBookingId": null
+    },
+    "u3": {
+      "name": "Sokha Lim",
+      "imageUrl": "https://example.com/user3.jpg",
+      "subscriptionId": null,
+      "currentBookingId": null
+    }
+  },
+  "subscriptions": {
+    "sub_1": {
+      "subscriptionId": "sub_1",
+      "subscriptionType": "monthly",
+      "startDate": "2026-04-17T00:00:00.000"
+    },
+    "sub_2": {
+      "subscriptionId": "sub_2",
+      "subscriptionType": "annual",
+      "startDate": "2026-01-01T00:00:00.000"
+    }
+  },
+  "bookings": {
+    "booking_1": {
+      "id": "booking_1",
+      "bikeId": "bike_1_1",
+      "stationId": "station_1",
+      "slotNumber": 1,
+      "bookingTime": "2026-04-17T10:00:00.000"
+    }
+  }
+}
