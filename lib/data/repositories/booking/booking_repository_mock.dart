@@ -34,9 +34,4 @@ class BookingRepositoryMock implements BookingRepository {
       _bookings[index] = booking;
     }
   }
-
-  @override
-  Future<void> deleteBooking(String id) async {
-    _bookings.removeWhere((b) => b.id == id);
-  }
 }

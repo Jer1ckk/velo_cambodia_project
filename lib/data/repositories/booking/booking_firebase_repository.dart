@@ -122,18 +122,4 @@ class BookingFirebaseRepository implements BookingRepository {
     }
   }
 
-  @override
-  Future<void> deleteBooking(String id) async {
-    final url = Uri.https(baseUrl, '/bookings/$id.json');
-
-    final response = await http.delete(url);
-
-    if (response.statusCode != 200) {
-      throw Exception('Failed to delete booking');
-    }
-
-    if (_cachedBookings != null) {
-      _cachedBookings!.removeWhere((b) => b.id == id);
-    }
-  }
 }
