@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../data/repositories/stations/stations_repository.dart';
+import '../../../data/repositories/stations/station_repository.dart';
 import 'view_model/station_map_view_model.dart';
 import 'widgets/station_map_content.dart';
 

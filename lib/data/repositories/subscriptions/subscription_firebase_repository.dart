@@ -5,7 +5,7 @@ import '../../../models/subscriptions/subscription.dart';
 import '../../dtos/subscription_dto.dart';
 import 'subscription_repository.dart';
 
-class SubscriptionsFirebaseRepository implements SubscriptionRepository {
+class SubscriptionFirebaseRepository implements SubscriptionRepository {
   final String baseUrl =
       'w9-data-default-rtdb.asia-southeast1.firebasedatabase.app';
 
@@ -60,7 +60,7 @@ class SubscriptionsFirebaseRepository implements SubscriptionRepository {
   }) async {
     if (!forceFetch && _cachedSubscriptions != null) {
       try {
-        return _cachedSubscriptions!.firstWhere(
+        return _cachedSubscriptions!.firstWhere( 
           (subscription) => subscription.subscriptionId == id,
         );
       } catch (_) {}
@@ -99,7 +99,7 @@ class SubscriptionsFirebaseRepository implements SubscriptionRepository {
   }
 
   @override
-  Future<void> createOrUpdateSubscription(Subscription subscription) async {
+  Future<void> createSubscription(Subscription subscription) async {
     final url = Uri.https(
       baseUrl,
       '/subscriptions/${subscription.subscriptionId}.json',

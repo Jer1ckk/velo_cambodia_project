@@ -56,25 +56,6 @@ class UserState extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> updateCurrentBookingId(String userId, String? bookingId) async {
-    await repository.updateCurrentBookingId(userId, bookingId);
-    _user = await repository.fetchUserById(userId);
-    notifyListeners();
-  }
-
-  Future<void> updateSubscriptionId(
-    String userId,
-    String? subscriptionId,
-  ) async {
-    try {
-      await repository.updateSubscriptionId(userId, subscriptionId);
-      _user = await repository.fetchUserById(userId);
-      notifyListeners();
-    } catch (e) {
-      debugPrint('Error updating subscriptionId: $e');
-    }
-  }
-
   Future<void> clearCurrentBooking() async {
     final user = _user;
     if (user == null) return;

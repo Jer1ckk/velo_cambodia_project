@@ -57,12 +57,9 @@ class SubscriptionDetailViewModel extends ChangeNotifier {
         startDate: DateTime.now(),
       );
 
-      await subscriptionRepository.createOrUpdateSubscription(subscription);
+      await subscriptionRepository.createSubscription(subscription);
 
-      await userState.updateSubscriptionId(
-        user.id,
-        subscription.subscriptionId,
-      );
+      await userState.updateSubscription(subscription.subscriptionId);
 
       subscribeValue = AsyncValue.success(null);
       notifyListeners();

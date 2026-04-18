@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../data/repositories/stations/stations_repository.dart';
+import '../../../../data/repositories/stations/station_repository.dart';
 import '../../../../models/stations/station.dart';
 import '../../../utils/async_value.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:velo_project/data/repositories/stations/stations_repository.dart';
+import 'package:velo_project/data/repositories/stations/station_repository.dart';
 
 import '../../../models/services/user_detail_service.dart';
 import '../../states/user_state.dart';

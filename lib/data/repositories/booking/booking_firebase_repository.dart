@@ -5,7 +5,7 @@ import '../../../models/booking/booking.dart';
 import '../../dtos/booking_dto.dart';
 import 'booking_repository.dart';
 
-class BookingsFirebaseRepository implements BookingRepository {
+class BookingFirebaseRepository implements BookingRepository {
   final String baseUrl =
       'w9-data-default-rtdb.asia-southeast1.firebasedatabase.app';
 

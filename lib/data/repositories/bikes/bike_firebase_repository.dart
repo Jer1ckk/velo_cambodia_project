@@ -3,9 +3,9 @@ import 'package:http/http.dart' as http;
 
 import '../../../models/bikes/bike.dart';
 import '../../dtos/bike_dto.dart';
-import 'bikes_repository.dart';
+import 'bike_repository.dart';
 
-class BikesFirebaseRepository implements BikeRepository {
+class BikeFirebaseRepository implements BikeRepository {
   final String baseUrl =
       'w9-data-default-rtdb.asia-southeast1.firebasedatabase.app';
 

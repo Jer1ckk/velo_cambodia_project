@@ -139,26 +139,5 @@ class UserFirebaseRepository implements UserRepository {
     }
   }
 
-  @override
-  Future<void> updateUser(User user) async {
-    final url = Uri.https(baseUrl, '/users/${user.id}.json');
 
-    final response = await http.put(
-      url,
-      body: jsonEncode(UserDto.toJson(user)),
-    );
-
-    if (response.statusCode != 200) {
-      throw Exception('Failed to update user');
-    }
-
-    _cachedUsers ??= [];
-
-    final index = _cachedUsers!.indexWhere((u) => u.id == user.id);
-    if (index != -1) {
-      _cachedUsers![index] = user;
-    } else {
-      _cachedUsers!.add(user);
-    }
-  }
 }

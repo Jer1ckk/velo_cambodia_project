@@ -7,7 +7,6 @@ class UserDetail {
   final Subscription? subscription;
   final Booking? currentBooking;
 
-  
   const UserDetail({
     required this.user,
     this.subscription,

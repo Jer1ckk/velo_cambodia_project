@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../data/repositories/booking/booking_repository.dart';
-import '../../../../data/repositories/stations/stations_repository.dart';
+import '../../../../data/repositories/stations/station_repository.dart';
 import '../../../../models/bikes/bike.dart';
 import '../../../../models/booking/booking.dart';
 import '../../../../models/services/station_detail_service.dart';
@@ -143,7 +143,7 @@ class BookingBikeViewModel extends ChangeNotifier {
 
       await stationRepository.removeBikeFromSlot(stationId, currentSlot.id);
 
-      await userState.updateCurrentBookingId(user.id, booking.id);
+      await userState.updateBooking(booking.id);
 
       if (!context.mounted) return;
 

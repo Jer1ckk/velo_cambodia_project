@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../data/repositories/stations/stations_repository.dart';
+import '../../../../data/repositories/stations/station_repository.dart';
 import '../../../../models/services/user_detail_service.dart';
 import '../../../../models/users/user.dart';
 import '../../../../models/users/user_detail.dart';

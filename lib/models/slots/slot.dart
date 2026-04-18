@@ -5,13 +5,7 @@ class Slot {
   final int slotNumber;
   final String? bikeId;
 
-
-  Slot({
-    required this.id,
-    required this.slotNumber,
-    this.bikeId,
- 
-  });
+  Slot({required this.id, required this.slotNumber, this.bikeId});
 
   bool get hasBike => bikeId != null;
 

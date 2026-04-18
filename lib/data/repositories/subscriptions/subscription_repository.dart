@@ -7,5 +7,5 @@ abstract class SubscriptionRepository {
     String id, {
     bool forceFetch = false,
   });
-  Future<void> createOrUpdateSubscription(Subscription subscription);
+  Future<void> createSubscription(Subscription subscription);
 }

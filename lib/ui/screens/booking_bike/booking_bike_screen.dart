@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../data/repositories/booking/booking_repository.dart';
-import '../../../data/repositories/stations/stations_repository.dart';
+import '../../../data/repositories/stations/station_repository.dart';
 import '../../states/user_state.dart';
 import '../../../models/services/station_detail_service.dart';
 import 'view_model/booking_view_model.dart';

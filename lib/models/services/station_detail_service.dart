@@ -1,9 +1,8 @@
-import '../../data/repositories/bikes/bikes_repository.dart';
-import '../../data/repositories/stations/stations_repository.dart';
+import '../../data/repositories/bikes/bike_repository.dart';
+import '../../data/repositories/stations/station_repository.dart';
 import '../../models/bikes/bike.dart';
 import '../../models/stations/station.dart';
 import '../../models/stations/station_detail.dart';
-
 
 class StationDetailService {
   final StationRepository stationRepository;
@@ -31,9 +30,6 @@ class StationDetailService {
         .where((bike) => bike.stationId == stationId)
         .toList();
 
-    return StationDetail(
-      station: station,
-      bikes: stationBikes,
-    );
+    return StationDetail(station: station, bikes: stationBikes);
   }
 }

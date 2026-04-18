@@ -17,6 +17,24 @@ class Station {
     required this.slots,
   });
 
+  Station copyWith({
+    String? id,
+    String? name,
+    String? street,
+    double? lat,
+    double? lng,
+    List<Slot>? slots,
+  }) {
+    return Station(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      street: street ?? this.street,
+      lat: lat ?? this.lat,
+      lng: lng ?? this.lng,
+      slots: slots ?? this.slots,
+    );
+  }
+
   int get availableBikes => slots.where((slot) => slot.bikeId != null).length;
 
   int get emptySlots => slots.where((slot) => slot.bikeId == null).length;

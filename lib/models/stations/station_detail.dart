@@ -5,5 +5,5 @@ class StationDetail {
   final Station station;
   final List<Bike> bikes;
 
-  const StationDetail({ required this.station, required this.bikes});
+  const StationDetail({required this.station, required this.bikes});
 }

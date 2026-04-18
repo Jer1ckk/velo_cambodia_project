@@ -5,7 +5,8 @@ class Subscription {
 
   const Subscription({
     required this.subscriptionType,
-    required this.startDate, required this.subscriptionId,
+    required this.startDate,
+    required this.subscriptionId,
   });
 
   DateTime get endDate {

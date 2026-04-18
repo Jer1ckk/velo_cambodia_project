@@ -7,5 +7,4 @@ abstract class UserRepository {
 
   Future<void> updateSubscriptionId(String userId, String? subscriptionId);
   Future<void> updateCurrentBookingId(String userId, String? bookingId);
-  Future<void> updateUser(User user);
 }

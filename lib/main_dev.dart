@@ -1,16 +1,16 @@
 import 'package:provider/provider.dart';
-import 'package:velo_project/data/repositories/bikes/bikes_firebase_repository.dart';
-import 'package:velo_project/data/repositories/bikes/bikes_repository.dart';
+import 'package:velo_project/data/repositories/bikes/bike_firebase_repository.dart';
+import 'package:velo_project/data/repositories/bikes/bike_repository.dart';
 import 'package:velo_project/data/repositories/booking/booking_repository.dart';
-import 'package:velo_project/data/repositories/booking/bookings_firebase_repository.dart';
-import 'package:velo_project/data/repositories/stations/stations_firebase_repository.dart';
+import 'package:velo_project/data/repositories/booking/booking_firebase_repository.dart';
+import 'package:velo_project/data/repositories/stations/station_firebase_repository.dart';
 import 'package:velo_project/data/repositories/subscriptions/subscription_repository.dart';
-import 'package:velo_project/data/repositories/subscriptions/subscriptions_firebase_repository.dart';
+import 'package:velo_project/data/repositories/subscriptions/subscription_firebase_repository.dart';
 import 'package:velo_project/data/repositories/users/user_firebase_repository.dart';
 import 'package:velo_project/data/repositories/users/user_repository.dart';
 import 'package:velo_project/ui/states/user_state.dart';
 
-import 'data/repositories/stations/stations_repository.dart';
+import 'data/repositories/stations/station_repository.dart';
 import 'main_common.dart';
 import 'models/services/station_detail_service.dart';
 import 'models/services/user_detail_service.dart';
@@ -20,12 +20,12 @@ List<InheritedProvider> get devProviders {
 
   return [
     Provider<UserRepository>(create: (_) => userRepository),
-    Provider<StationRepository>(create: (_) => StationsFirebaseRepository()),
-    Provider<BikeRepository>(create: (_) => BikesFirebaseRepository()),
+    Provider<StationRepository>(create: (_) => StationFirebaseRepository()),
+    Provider<BikeRepository>(create: (_) => BikeFirebaseRepository()),
     Provider<SubscriptionRepository>(
-      create: (_) => SubscriptionsFirebaseRepository(),
+      create: (_) => SubscriptionFirebaseRepository(),
     ),
-    Provider<BookingRepository>(create: (_) => BookingsFirebaseRepository()),
+    Provider<BookingRepository>(create: (_) => BookingFirebaseRepository()),
     ChangeNotifierProvider<UserState>(
       create: (_) => UserState(repository: userRepository, userId: 'u1'),
     ),

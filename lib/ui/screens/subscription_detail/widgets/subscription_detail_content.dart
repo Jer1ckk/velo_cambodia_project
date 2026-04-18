@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:velo_project/ui/widgets/subscription_status_badge.dart';
 
 import '../../../../models/subscriptions/subscription.dart';
 import '../../../utils/async_value.dart';
@@ -36,22 +37,7 @@ class PassDetailContent extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 12, top: 10, bottom: 10),
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            decoration: BoxDecoration(
-              color: vm.hasSubscription ? Colors.green : Colors.black54,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Center(
-              child: Text(
-                vm.hasSubscription ? 'Active Pass' : 'Inactive Pass',
-                style: const TextStyle(color: Colors.white, fontSize: 12),
-              ),
-            ),
-          ),
-        ],
+        actions: [SubscriptionStatusBadge(hasSubscription: vm.hasSubscription)],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
