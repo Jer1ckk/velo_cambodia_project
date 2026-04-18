@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../models/stations/station.dart';
+import '../../../../domain/models/stations/station.dart';
 import '../../../utils/async_value.dart';
 import '../../station/station_screen.dart';
 import '../view_model/station_map_view_model.dart';

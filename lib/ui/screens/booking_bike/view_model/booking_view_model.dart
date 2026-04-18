@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../../data/repositories/booking/booking_repository.dart';
 import '../../../../data/repositories/stations/station_repository.dart';
-import '../../../../models/bikes/bike.dart';
-import '../../../../models/booking/booking.dart';
-import '../../../../models/services/station_detail_service.dart';
-import '../../../../models/slots/slot.dart';
-import '../../../../models/stations/station.dart';
-import '../../../../models/stations/station_detail.dart';
+import '../../../../domain/models/bikes/bike.dart';
+import '../../../../domain/models/booking/booking.dart';
+import '../../../../domain/services/station_detail_service.dart';
+import '../../../../domain/models/slots/slot.dart';
+import '../../../../domain/models/stations/station.dart';
+import '../../../../domain/models/stations/station_detail.dart';
 import '../../../states/user_state.dart';
 import '../../../utils/async_value.dart';
 import '../../booking_bike_success/booking_success_screen.dart';

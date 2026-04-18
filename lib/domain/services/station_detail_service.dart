@@ -1,8 +1,8 @@
 import '../../data/repositories/bikes/bike_repository.dart';
 import '../../data/repositories/stations/station_repository.dart';
-import '../../models/bikes/bike.dart';
-import '../../models/stations/station.dart';
-import '../../models/stations/station_detail.dart';
+import '../models/bikes/bike.dart';
+import '../models/stations/station.dart';
+import '../models/stations/station_detail.dart';
 
 class StationDetailService {
   final StationRepository stationRepository;

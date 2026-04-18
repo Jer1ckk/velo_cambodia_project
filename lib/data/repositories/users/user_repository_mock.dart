@@ -1,4 +1,4 @@
-import '../../../models/users/user.dart';
+import '../../../domain/models/users/user.dart';
 import 'user_repository.dart';
 import '../../example/mock_data/mock_data.dart';
 

@@ -12,8 +12,8 @@ import 'package:velo_project/ui/states/user_state.dart';
 
 import 'data/repositories/stations/station_repository.dart';
 import 'main_common.dart';
-import 'models/services/station_detail_service.dart';
-import 'models/services/user_detail_service.dart';
+import 'domain/services/station_detail_service.dart';
+import 'domain/services/user_detail_service.dart';
 
 List<InheritedProvider> get devProviders {
   final UserRepository userRepository = UserFirebaseRepository();

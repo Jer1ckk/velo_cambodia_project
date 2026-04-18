@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../../../models/booking/booking.dart';
+import '../../../domain/models/booking/booking.dart';
 import '../../dtos/booking_dto.dart';
 import 'booking_repository.dart';
 

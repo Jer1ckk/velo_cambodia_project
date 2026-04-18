@@ -1,4 +1,4 @@
-import '../../models/booking/booking.dart';
+import '../../domain/models/booking/booking.dart';
 
 class BookingDto {
   static const String idKey = 'id';

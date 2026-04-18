@@ -1,4 +1,4 @@
-import '../../../models/subscriptions/subscription.dart';
+import '../../../domain/models/subscriptions/subscription.dart';
 import 'subscription_repository.dart';
 import '../../example/mock_data/mock_data.dart';
 

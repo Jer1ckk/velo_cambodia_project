@@ -1,4 +1,4 @@
-import '../../models/users/user.dart';
+import '../../domain/models/users/user.dart';
 
 class UserDto {
   static const String idKey = 'id';

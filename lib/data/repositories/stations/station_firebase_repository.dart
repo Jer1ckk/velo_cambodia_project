@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../../../models/stations/station.dart';
+import '../../../domain/models/stations/station.dart';
 import '../../dtos/station_dto.dart';
 import 'station_repository.dart';
 

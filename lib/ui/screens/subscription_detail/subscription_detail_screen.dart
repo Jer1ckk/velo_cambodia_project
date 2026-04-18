@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../data/repositories/subscriptions/subscription_repository.dart';
-import '../../../models/subscriptions/subscription.dart';
+import '../../../domain/models/subscriptions/subscription.dart';
 import '../../states/user_state.dart';
 import 'view_model/subscription_detail_view_model.dart';
 import 'widgets/subscription_detail_content.dart';

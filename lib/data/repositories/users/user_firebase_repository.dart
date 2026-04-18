@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../../../models/users/user.dart';
+import '../../../domain/models/users/user.dart';
 import '../../dtos/user_dto.dart';
 import 'user_repository.dart';
 

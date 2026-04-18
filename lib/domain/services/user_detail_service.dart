@@ -1,10 +1,10 @@
 import '../../data/repositories/booking/booking_repository.dart';
 import '../../data/repositories/subscriptions/subscription_repository.dart';
 import '../../data/repositories/users/user_repository.dart';
-import '../../models/booking/booking.dart';
-import '../../models/subscriptions/subscription.dart';
-import '../../models/users/user.dart';
-import '../../models/users/user_detail.dart';
+import '../models/booking/booking.dart';
+import '../models/subscriptions/subscription.dart';
+import '../models/users/user.dart';
+import '../models/users/user_detail.dart';
 
 class UserDetailService {
   final UserRepository userRepository;

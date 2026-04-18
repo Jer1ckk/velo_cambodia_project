@@ -1,4 +1,4 @@
-import '../../models/slots/slot.dart';
+import '../../domain/models/slots/slot.dart';
 
 class SlotDto {
   static const String slotNumberKey = 'slotNumber';

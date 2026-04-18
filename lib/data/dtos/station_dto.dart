@@ -1,5 +1,5 @@
-import '../../models/slots/slot.dart';
-import '../../models/stations/station.dart';
+import '../../domain/models/slots/slot.dart';
+import '../../domain/models/stations/station.dart';
 import 'slot_dto.dart';
 
 class StationDto {

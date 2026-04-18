@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../states/user_state.dart';
-import '../../../../models/subscriptions/subscription.dart';
+import '../../../../domain/models/subscriptions/subscription.dart';
 import '../../subscription_detail/subscription_detail_screen.dart';
 
 class SubscriptionViewModel extends ChangeNotifier {

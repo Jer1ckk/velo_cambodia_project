@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:velo_project/data/repositories/users/user_repository.dart';
-import '../../models/users/user.dart';
+import '../../domain/models/users/user.dart';
 
 class UserState extends ChangeNotifier {
   final UserRepository repository;

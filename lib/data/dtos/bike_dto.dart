@@ -1,4 +1,4 @@
-import '../../models/bikes/bike.dart';
+import '../../domain/models/bikes/bike.dart';
 
 class BikeDto {
   static const String idKey = 'id';

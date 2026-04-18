@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../data/repositories/subscriptions/subscription_repository.dart';
-import '../../../../models/subscriptions/subscription.dart';
+import '../../../../domain/models/subscriptions/subscription.dart';
 import '../../../states/user_state.dart';
 import '../../../utils/async_value.dart';
 

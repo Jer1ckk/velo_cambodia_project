@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:velo_project/ui/utils/date_format.dart';
 
-import '../../../../models/users/user_detail.dart';
+import '../../../../domain/models/users/user_detail.dart';
 import '../../../utils/async_value.dart';
 import '../view_model/profile_view_model.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../data/repositories/stations/station_repository.dart';
-import '../../../../models/stations/station.dart';
+import '../../../../domain/models/stations/station.dart';
 import '../../../utils/async_value.dart';
 
 class StationMapViewModel extends ChangeNotifier {

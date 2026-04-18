@@ -1,4 +1,4 @@
-import '../../../models/bikes/bike.dart';
+import '../../../domain/models/bikes/bike.dart';
 import 'bike_repository.dart';
 import '../../example/mock_data/mock_data.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:velo_project/ui/widgets/subscription_status_badge.dart';
 
-import '../../../../models/subscriptions/subscription.dart';
+import '../../../../domain/models/subscriptions/subscription.dart';
 import '../../../utils/async_value.dart';
 import '../view_model/subscription_detail_view_model.dart';
 import 'info_card.dart';

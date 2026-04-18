@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../data/repositories/stations/station_repository.dart';
-import '../../../../models/services/user_detail_service.dart';
-import '../../../../models/users/user.dart';
-import '../../../../models/users/user_detail.dart';
+import '../../../../domain/services/user_detail_service.dart';
+import '../../../../domain/models/users/user.dart';
+import '../../../../domain/models/users/user_detail.dart';
 import '../../../states/user_state.dart';
 import '../../../utils/async_value.dart';
 

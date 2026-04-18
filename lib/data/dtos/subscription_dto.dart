@@ -1,4 +1,4 @@
-import '../../models/subscriptions/subscription.dart';
+import '../../domain/models/subscriptions/subscription.dart';
 
 class SubscriptionDto {
   static const String subscriptionIdKey = 'subscriptionId';

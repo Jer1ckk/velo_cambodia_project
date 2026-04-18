@@ -1,4 +1,4 @@
-import '../../../models/stations/station.dart';
+import '../../../domain/models/stations/station.dart';
 
 abstract class StationRepository {
   Future<List<Station>> fetchStations();

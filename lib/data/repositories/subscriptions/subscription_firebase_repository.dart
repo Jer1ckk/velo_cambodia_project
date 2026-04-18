@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../../../models/subscriptions/subscription.dart';
+import '../../../domain/models/subscriptions/subscription.dart';
 import '../../dtos/subscription_dto.dart';
 import 'subscription_repository.dart';
 

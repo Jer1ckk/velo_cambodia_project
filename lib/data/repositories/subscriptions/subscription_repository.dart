@@ -1,4 +1,4 @@
-import '../../../models/subscriptions/subscription.dart';
+import '../../../domain/models/subscriptions/subscription.dart';
 
 abstract class SubscriptionRepository {
   Future<List<Subscription>> fetchSubscriptions();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../models/bikes/bike.dart';
-import '../../../../models/services/station_detail_service.dart';
-import '../../../../models/stations/station_detail.dart';
+import '../../../../domain/models/bikes/bike.dart';
+import '../../../../domain/services/station_detail_service.dart';
+import '../../../../domain/models/stations/station_detail.dart';
 import '../../../states/user_state.dart';
 import '../../../utils/async_value.dart';
 import '../../booking_bike/booking_bike_screen.dart';

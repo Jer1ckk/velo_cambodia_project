@@ -1,4 +1,4 @@
-import '../../../models/bikes/bike.dart';
+import '../../../domain/models/bikes/bike.dart';
 
 abstract class BikeRepository {
   Future<List<Bike>> fetchBikes();

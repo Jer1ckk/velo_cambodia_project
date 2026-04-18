@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../../../models/bikes/bike.dart';
+import '../../../domain/models/bikes/bike.dart';
 import '../../dtos/bike_dto.dart';
 import 'bike_repository.dart';
 

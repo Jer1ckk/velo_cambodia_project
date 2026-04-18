@@ -1,4 +1,4 @@
-import '../../../models/booking/booking.dart';
+import '../../../domain/models/booking/booking.dart';
 import 'booking_repository.dart';
 import '../../example/mock_data/mock_data.dart';
 

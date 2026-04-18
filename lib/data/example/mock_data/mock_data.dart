@@ -1,9 +1,9 @@
-import '../../../models/bikes/bike.dart';
-import '../../../models/slots/slot.dart';
-import '../../../models/subscriptions/subscription.dart';
-import '../../../models/users/user.dart';
-import '../../../models/booking/booking.dart';
-import '../../../models/stations/station.dart';
+import '../../../domain/models/bikes/bike.dart';
+import '../../../domain/models/slots/slot.dart';
+import '../../../domain/models/subscriptions/subscription.dart';
+import '../../../domain/models/users/user.dart';
+import '../../../domain/models/booking/booking.dart';
+import '../../../domain/models/stations/station.dart';
 
 final List<User> mockUsers = [
   const User(
