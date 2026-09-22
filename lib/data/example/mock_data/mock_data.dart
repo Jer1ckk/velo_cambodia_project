@@ -7,7 +7,7 @@ import '../../../domain/models/stations/station.dart';
 
 final List<User> mockUsers = [
   const User(
-    id: 'user_1',
+    id: 'u1',
     name: 'Jerick',
     subscriptionId: null,
     currentBookingId: null,

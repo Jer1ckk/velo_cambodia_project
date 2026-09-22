@@ -1,13 +1,16 @@
 import 'package:provider/provider.dart';
 import 'package:velo_project/data/repositories/bikes/bike_firebase_repository.dart';
 import 'package:velo_project/data/repositories/bikes/bike_repository.dart';
+import 'package:velo_project/data/repositories/bikes/bike_repository_mock.dart';
 import 'package:velo_project/data/repositories/booking/booking_repository.dart';
 import 'package:velo_project/data/repositories/booking/booking_firebase_repository.dart';
 import 'package:velo_project/data/repositories/stations/station_firebase_repository.dart';
+import 'package:velo_project/data/repositories/stations/station_repository_mock.dart';
 import 'package:velo_project/data/repositories/subscriptions/subscription_repository.dart';
 import 'package:velo_project/data/repositories/subscriptions/subscription_firebase_repository.dart';
 import 'package:velo_project/data/repositories/users/user_firebase_repository.dart';
 import 'package:velo_project/data/repositories/users/user_repository.dart';
+import 'package:velo_project/data/repositories/users/user_repository_mock.dart';
 import 'package:velo_project/ui/states/user_state.dart';
 
 import 'data/repositories/stations/station_repository.dart';

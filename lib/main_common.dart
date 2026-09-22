@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'ui/screens/profile/profile_screen.dart';
 import 'ui/screens/stations_map/stations_map_screen.dart';
 import 'ui/screens/subscription/subscription_screen.dart';
-
+import 'ui/theme/theme.dart';
 
 void mainCommon(List<InheritedProvider> providers) {
   runApp(
     MultiProvider(
       providers: providers,
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: MyApp(),
+        theme: veloTheme,
+        home: const MyApp(),
       ),
     ),
   );
@@ -36,7 +36,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -46,21 +45,13 @@ class _MyAppState extends State<MyApp> {
             _currentIndex = index;
           });
         },
-        selectedItemColor: const Color(0xFFF4A261),
-        unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.confirmation_number),
             label: 'Pass',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Map',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );
