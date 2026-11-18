@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
 
+import '../../../theme/theme.dart';
+
 class PaymentCard extends StatelessWidget {
   const PaymentCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(VeloSpacings.m),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.grey.shade300),
+        color: VeloColors.infoLight,
+        borderRadius: BorderRadius.circular(VeloSpacings.radius),
       ),
-      child: const Row(
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Icon(Icons.credit_card, color: Colors.blue),
-          SizedBox(width: 10),
-          Expanded(child: Text('****9382 | 22/30')),
-          Text('change', style: TextStyle(color: Colors.red, fontSize: 12)),
+          Text('Before you activate', style: VeloTextStyles.title),
+          SizedBox(height: VeloSpacings.xs),
+          Text(
+            'Confirming activates this pass on your account. '
+            'No payment is collected in the app.',
+            style: VeloTextStyles.body,
+          ),
         ],
       ),
     );

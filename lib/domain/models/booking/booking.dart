@@ -15,5 +15,7 @@ class Booking {
 
   DateTime get expiryTime => bookingTime.add(const Duration(hours: 1));
 
-  bool get isExpired => DateTime.now().isAfter(expiryTime);
+  bool isExpiredAt(DateTime time) => !time.isBefore(expiryTime);
+
+  bool get isExpired => isExpiredAt(DateTime.now());
 }

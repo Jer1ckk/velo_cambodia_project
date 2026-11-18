@@ -1,6 +1,11 @@
-# Reusable AI Coding Rules
+# Repository Coding Instructions
 
 These instructions apply across programming languages, frameworks, architectures, and repository layouts. Discover each project's conventions from its own implementation and configuration. Do not carry assumptions from another codebase into the current one.
+
+This file applies throughout this repository. Nested `AGENTS.md` files may add instructions for their directories. Project documentation has two complementary roles:
+
+- [Project guidelines](docs/PROJECT_GUIDELINES.md): current architecture, data flow, conventions, implementation examples, and known limitations.
+- [UI/UX guidelines](docs/UI_UX_GUIDELINES.md): design tokens, screen requirements, and UI acceptance criteria.
 
 ## 1. Core Principles
 
@@ -15,7 +20,7 @@ These instructions apply across programming languages, frameworks, architectures
 
 Before implementing a feature or fix:
 
-1. Read applicable repository instructions and `PROJECT_GUIDELINES.md`, if present.
+1. Read applicable repository instructions and relevant documentation listed below.
 2. Inspect the root directory and relevant manifests, build configuration, tool configuration, and entry points to identify languages, frameworks, dependencies, and development tools.
 3. Find a similar existing feature and read its relevant implementation, callers, and tests.
 4. Trace component responsibilities and communication to establish the actual architecture and dependency direction.
@@ -79,7 +84,7 @@ Never claim that a command or test succeeded unless it was executed and its resu
 
 ## 8. Project-Specific Guidelines
 
-- Use `PROJECT_GUIDELINES.md`, when present, as the main reference for project-specific architecture, file placement, coding conventions, and implementation examples.
+- Use [docs/PROJECT_GUIDELINES.md](docs/PROJECT_GUIDELINES.md) as the main reference for project-specific architecture, file placement, coding conventions, and implementation examples.
 - Verify guidance against relevant source and configuration, especially when it appears outdated or conflicts with current code.
 - If the guidelines are absent, follow conventions established directly through inspection. Their absence alone does not require creating a new guidelines document.
 - Keep reusable instructions independent of any particular framework, architecture, folder name, or state-management tool. Keep project-specific facts in project-specific documentation.
@@ -94,3 +99,13 @@ Never claim that a command or test succeeded unless it was executed and its resu
 - Preserve backward compatibility where appropriate. When a required change affects public interfaces, stored data, configuration, or integrations, account for affected consumers and any necessary migration.
 - Explain important trade-offs and required deviations from established patterns. Do not use a task as authorization to repair unrelated issues.
 - Before finishing, confirm that the requested work is complete, review the changed-file scope, and report material remaining limitations accurately.
+
+## 10. Documentation Discovery
+
+Before working on a task, identify which project documentation is relevant.
+
+- Read [docs/PROJECT_GUIDELINES.md](docs/PROJECT_GUIDELINES.md) when working with architecture, business logic, data flow, repositories, state management, or implementation conventions.
+- Read [docs/UI_UX_GUIDELINES.md](docs/UI_UX_GUIDELINES.md) when working with UI design, layouts, styling, navigation, interactions, or accessibility.
+- Follow applicable `AGENTS.md` instructions in nested directories.
+- Use documentation as guidance, but verify important implementation details against the actual source code.
+- Do not read unrelated documentation unless the task requires it.

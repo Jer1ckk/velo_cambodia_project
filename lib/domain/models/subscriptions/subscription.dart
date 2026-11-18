@@ -26,9 +26,11 @@ class Subscription {
     }
   }
 
-  bool get isActive => DateTime.now().isBefore(endDate);
+  bool isExpiredAt(DateTime time) => !time.isBefore(endDate);
 
-  bool get isExpired => !isActive;
+  bool get isActive => !isExpired;
+
+  bool get isExpired => isExpiredAt(DateTime.now());
 
   int get remainingDays {
     final now = DateTime.now();

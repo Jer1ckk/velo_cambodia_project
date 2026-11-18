@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 import '../../../domain/models/subscriptions/subscription.dart';
@@ -60,7 +62,7 @@ class SubscriptionFirebaseRepository implements SubscriptionRepository {
   }) async {
     if (!forceFetch && _cachedSubscriptions != null) {
       try {
-        return _cachedSubscriptions!.firstWhere( 
+        return _cachedSubscriptions!.firstWhere(
           (subscription) => subscription.subscriptionId == id,
         );
       } catch (_) {}
@@ -105,13 +107,23 @@ class SubscriptionFirebaseRepository implements SubscriptionRepository {
       '/subscriptions/${subscription.subscriptionId}.json',
     );
 
-    final response = await http.put(
-      url,
-      body: jsonEncode(SubscriptionDto.toJson(subscription)),
-    );
+    final http.Response response;
+    try {
+      response = await http
+          .put(
+            url,
+            headers: {'Content-Type': 'application/json'},
+            body: jsonEncode(SubscriptionDto.toJson(subscription)),
+          )
+          .timeout(const Duration(seconds: 20));
+    } on TimeoutException {
+      throw const SubscriptionSaveException.timeout();
+    } on http.ClientException {
+      throw const SubscriptionSaveException.connection();
+    }
 
     if (response.statusCode != 200) {
-      throw Exception('Failed to save subscription');
+      throw SubscriptionSaveException(response.statusCode);
     }
 
     if (_cachedSubscriptions != null) {

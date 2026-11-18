@@ -4,6 +4,7 @@ import 'ui/screens/profile/profile_screen.dart';
 import 'ui/screens/stations_map/stations_map_screen.dart';
 import 'ui/screens/subscription/subscription_screen.dart';
 import 'ui/theme/theme.dart';
+import 'ui/states/user_state.dart';
 
 void mainCommon(List<InheritedProvider> providers) {
   runApp(
@@ -27,6 +28,28 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _currentIndex = 1;
+  late final AppLifecycleListener _lifecycleListener;
+
+  @override
+  void initState() {
+    super.initState();
+    final userState = context.read<UserState>();
+    _lifecycleListener = AppLifecycleListener(
+      onStateChange: (state) {
+        if (state == AppLifecycleState.resumed) {
+          userState.resumeExpiryChecks();
+        } else {
+          userState.pauseExpiryChecks();
+        }
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _lifecycleListener.dispose();
+    super.dispose();
+  }
 
   final List<Widget> _pages = const [
     SubscriptionScreen(),

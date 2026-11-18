@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../theme/theme.dart';
 import '../../../utils/async_value.dart';
 import '../view_model/booking_view_model.dart';
 import 'booking_banner.dart';
+import 'booking_summary.dart';
 
 class BookingBikeContent extends StatelessWidget {
   const BookingBikeContent({super.key});
@@ -11,150 +13,257 @@ class BookingBikeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final vm = context.watch<BookingBikeViewModel>();
-    final asyncValue = vm.bookingValue;
-
-    Widget content;
-
-    switch (asyncValue.state) {
-      case AsyncValueState.loading:
-        content = const Center(child: CircularProgressIndicator());
-        break;
-
-      case AsyncValueState.error:
-        content = Center(
-          child: Text(
-            'Error: ${asyncValue.error}',
-            style: const TextStyle(color: Colors.red),
+    final hasDetails = vm.detail != null;
+    return Scaffold(
+      appBar: AppBar(title: const Text('Booking')),
+      body: SafeArea(
+        top: false,
+        bottom: !hasDetails,
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: hasDetails
+                ? _ReviewBooking(vm: vm)
+                : _BookingLoadState(vm: vm),
           ),
-        );
-        break;
+        ),
+      ),
+      bottomNavigationBar: hasDetails ? _ConfirmBooking(vm: vm) : null,
+    );
+  }
+}
 
-      case AsyncValueState.success:
-        content = Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (vm.hasActiveBooking)
-                const BookingBanner(
-                  backgroundColor: Color(0xFFF9D4D0),
-                  borderColor: Color(0xFFE36D62),
-                  icon: Icons.warning,
-                  iconColor: Color(0xFFC0392B),
-                  text: 'You already have an active booking.',
-                  textColor: Color(0xFFC0392B),
-                )
-              else if (vm.hasActivePass)
-                const BookingBanner(
-                  backgroundColor: Color(0xFFD6EBC8),
-                  borderColor: Color(0xFF8FBC73),
-                  icon: Icons.confirmation_number,
-                  iconColor: Color(0xFF5E8E3E),
-                  text: 'Your pass is active. Booking is allowed.',
-                  textColor: Color(0xFF447027),
-                )
-              else
-                const BookingBanner(
-                  backgroundColor: Color(0xFFF9D4D0),
-                  borderColor: Color(0xFFE36D62),
-                  icon: Icons.error,
-                  iconColor: Color(0xFFC0392B),
-                  text: 'You must have an active pass to book.',
-                  textColor: Color(0xFFC0392B),
+class _ReviewBooking extends StatelessWidget {
+  final BookingBikeViewModel vm;
+
+  const _ReviewBooking({required this.vm});
+
+  @override
+  Widget build(BuildContext context) {
+    final failed = vm.hasConfirmationError;
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(VeloSpacings.m),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Semantics(
+            header: true,
+            child: const Text('Review your ride', style: VeloTextStyles.title),
+          ),
+          const SizedBox(height: VeloSpacings.m),
+          BookingSummary(
+            station: vm.station!,
+            bike: vm.bike,
+            slotNumber: vm.slotNumber,
+          ),
+          const SizedBox(height: VeloSpacings.m),
+          if (failed) ...[
+            const BookingBanner(
+              backgroundColor: VeloColors.errorLight,
+              borderColor: VeloColors.error,
+              icon: Icons.error_outline_rounded,
+              iconColor: VeloColors.error,
+              text:
+                  'We couldn’t finish confirming your booking. Check your profile before trying again.',
+              textColor: VeloColors.neutralDark,
+            ),
+            if (Navigator.canPop(context))
+              TextButton(
+                onPressed: () => vm.goBackToStation(context),
+                style: TextButton.styleFrom(
+                  foregroundColor: VeloColors.neutralDark,
+                  minimumSize: const Size(48, 48),
                 ),
-
-              const SizedBox(height: 20),
-
-              const Text(
-                'Booking Details',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                child: const Text('Back to station'),
               ),
-
-              const SizedBox(height: 20),
-
-              const Row(
-                children: [
-                  Icon(Icons.access_time, color: Color(0xFF82B366)),
-                  SizedBox(width: 10),
-                  Text(
-                    'Pickup Deadline: 60 mins',
-                    style: TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 30),
-
-              if (!vm.hasActiveBooking && vm.hasActivePass)
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFDDF0D1),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: const Color(0xFF8FBC73)),
-                  ),
-                  child: Row(
-                    children: [
-                      Checkbox(
-                        value: vm.agreeBooking,
-                        onChanged: (v) => vm.toggleAgree(v ?? false),
-                      ),
-                      const Expanded(
-                        child: Text(
-                          'Covered by your active pass',
-                          style: TextStyle(fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ],
-                  ),
+          ] else if (vm.hasActiveBooking)
+            const BookingBanner(
+              backgroundColor: VeloColors.warningLight,
+              borderColor: VeloColors.warning,
+              icon: Icons.event_busy_rounded,
+              iconColor: VeloColors.warning,
+              text:
+                  'You already have a booking. Finish it before reserving another bike.',
+              textColor: VeloColors.neutralDark,
+            )
+          else if (!vm.hasBike)
+            const BookingBanner(
+              backgroundColor: VeloColors.warningLight,
+              borderColor: VeloColors.warning,
+              icon: Icons.pedal_bike_rounded,
+              iconColor: VeloColors.warning,
+              text:
+                  'This bike is unavailable. Return to the station and choose another bike.',
+              textColor: VeloColors.neutralDark,
+            )
+          else if (!vm.hasActivePass)
+            const BookingBanner(
+              backgroundColor: VeloColors.warningLight,
+              borderColor: VeloColors.warning,
+              icon: Icons.confirmation_number_outlined,
+              iconColor: VeloColors.warning,
+              text: 'A pass is required to confirm this booking.',
+              textColor: VeloColors.neutralDark,
+            )
+          else
+            const BookingBanner(
+              backgroundColor: VeloColors.successLight,
+              borderColor: VeloColors.success,
+              icon: Icons.confirmation_number_outlined,
+              iconColor: VeloColors.success,
+              text: 'Your pass is linked to this booking.',
+              textColor: VeloColors.neutralDark,
+            ),
+          if (vm.canAgree) ...[
+            const SizedBox(height: VeloSpacings.m),
+            Material(
+              color: VeloColors.white,
+              borderRadius: BorderRadius.circular(VeloSpacings.radius),
+              child: CheckboxListTile(
+                value: vm.agreeBooking,
+                onChanged: vm.isSubmitting || failed
+                    ? null
+                    : (value) => vm.toggleAgree(value ?? false),
+                activeColor: VeloColors.neutralDark,
+                checkColor: VeloColors.primary,
+                controlAffinity: ListTileControlAffinity.leading,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: VeloSpacings.xs,
+                  vertical: VeloSpacings.xs,
                 ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(VeloSpacings.radius),
+                ),
+                title: const Text(
+                  'I’ll collect this bike within 60 minutes.',
+                  style: VeloTextStyles.body,
+                ),
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
 
-              const Spacer(),
+class _ConfirmBooking extends StatelessWidget {
+  final BookingBikeViewModel vm;
 
-              SizedBox(
+  const _ConfirmBooking({required this.vm});
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        color: VeloColors.white,
+        border: Border(top: BorderSide(color: VeloColors.border)),
+      ),
+      child: SafeArea(
+        top: false,
+        child: Center(
+          heightFactor: 1,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: Padding(
+              padding: const EdgeInsets.all(VeloSpacings.m),
+              child: SizedBox(
                 width: double.infinity,
-                height: 52,
                 child: ElevatedButton(
                   onPressed: vm.canConfirm
                       ? () => vm.confirmBooking(context)
                       : null,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF8BC34A),
-                    disabledBackgroundColor: Colors.grey.shade300,
-                  ),
                   child: vm.isSubmitting
-                      ? const SizedBox(
-                          width: 22,
-                          height: 22,
-                          child: CircularProgressIndicator(
-                            color: Colors.white,
-                            strokeWidth: 2.5,
+                      ? Semantics(
+                          liveRegion: true,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  color: VeloColors.neutralDark,
+                                ),
+                              ),
+                              const SizedBox(width: VeloSpacings.s),
+                              const Flexible(
+                                child: Text(
+                                  'Confirming booking…',
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
                           ),
                         )
                       : const Text(
-                          'Confirm Booking',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          'Confirm booking',
+                          textAlign: TextAlign.center,
                         ),
                 ),
               ),
-            ],
+            ),
           ),
-        );
-        break;
-    }
-
-    return Scaffold(
-      backgroundColor: const Color(0xFFF7F4F1),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFF7F4F1),
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
         ),
-        title: const Text('Booking Bike'),
       ),
-      body: content,
+    );
+  }
+}
+
+class _BookingLoadState extends StatelessWidget {
+  final BookingBikeViewModel vm;
+
+  const _BookingLoadState({required this.vm});
+
+  @override
+  Widget build(BuildContext context) {
+    final loading = vm.bookingValue.state == AsyncValueState.loading;
+    return Center(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(VeloSpacings.l),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (loading)
+              const CircularProgressIndicator(
+                color: VeloColors.neutralDark,
+                semanticsLabel: 'Loading booking',
+              )
+            else
+              const ExcludeSemantics(
+                child: Icon(Icons.cloud_off_rounded, size: 40),
+              ),
+            const SizedBox(height: VeloSpacings.m),
+            Semantics(
+              header: true,
+              liveRegion: true,
+              child: Text(
+                loading ? 'Loading booking' : 'Booking details couldn’t load',
+                style: VeloTextStyles.title,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: VeloSpacings.xs),
+            Text(
+              loading
+                  ? 'Checking your bike and pickup station.'
+                  : 'Check your connection and try again.',
+              style: VeloTextStyles.body,
+              textAlign: TextAlign.center,
+            ),
+            if (!loading) ...[
+              const SizedBox(height: VeloSpacings.l),
+              ElevatedButton.icon(
+                onPressed: () => vm.loadBookingDetails(forceFetch: true),
+                icon: const Icon(Icons.refresh_rounded),
+                label: const Text('Try again'),
+              ),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }

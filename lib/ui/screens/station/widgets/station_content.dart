@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:velo_project/ui/widgets/subscription_status_badge.dart';
 
+import '../../../theme/theme.dart';
 import '../../../utils/async_value.dart';
 import '../view_model/station_view_model.dart';
 import 'stat_chip.dart';
+import 'station_slot_card.dart';
 
 class StationContent extends StatelessWidget {
   const StationContent({super.key});
@@ -12,230 +13,403 @@ class StationContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final vm = context.watch<StationViewModel>();
-    final asyncValue = vm.stationDetailValue;
-
-    Widget content;
-
-    switch (asyncValue.state) {
-      case AsyncValueState.loading:
-        content = const Center(child: CircularProgressIndicator());
-        break;
-
-      case AsyncValueState.error:
-        content = Center(
-          child: Text(
-            'error = ${asyncValue.error}',
-            style: const TextStyle(color: Colors.red),
-          ),
-        );
-        break;
-
-      case AsyncValueState.success:
-        final detail = asyncValue.data!;
-        final station = detail.station;
-
-        content = Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-              child: Row(
-                children: [
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      station.name,
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(26, 4, 16, 0),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  station.street,
-                  style: const TextStyle(color: Colors.grey),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  StatChip(
-                    icon: Icons.pedal_bike,
-                    value: vm.availableBikeCount,
-                  ),
-                  const SizedBox(width: 10),
-                  StatChip(icon: Icons.local_parking, value: vm.emptySlotCount),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(10),
-              color: const Color(0xFFD6E8F7),
-              child: const Row(
-                children: [
-                  Icon(Icons.info, size: 16, color: Color(0xFF5B8DB8)),
-                  SizedBox(width: 6),
-                  Expanded(
-                    child: Text(
-                      'Tip: click on the bike you want to be booked.',
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.all(12),
-                itemCount: vm.availableSlots.length,
-                itemBuilder: (context, index) {
-                  final slot = vm.availableSlots[index];
-                  final isSelected = vm.selectedSlotNumber == slot.slotNumber;
-
-                  return GestureDetector(
-                    onTap: () => vm.selectSlot(slot.slotNumber),
-                    child: Container(
-                      margin: const EdgeInsets.only(bottom: 12),
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: isSelected
-                            ? Colors.green.withOpacity(0.08)
-                            : Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: isSelected
-                              ? Colors.green
-                              : const Color(0xFFF4B29D),
-                          width: isSelected ? 2 : 1.2,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.orange.withOpacity(0.15),
-                            blurRadius: 6,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 6,
-                            ),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFF4A261),
-                              borderRadius: BorderRadius.circular(6),
-                            ),
-                            child: Text(
-                              'S${slot.slotNumber.toString().padLeft(2, '0')}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 11,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 14),
-                          const Icon(
-                            Icons.pedal_bike,
-                            color: Color(0xFFF4A261),
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              slot.bike.id.toUpperCase(),
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: Color(0xFF9C6B53),
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                          Row(children: buildRating(slot.bike.rating)),
-                          const SizedBox(width: 10),
-                          const Text(
-                            '5 last review',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: SizedBox(
-                width: 200,
-                height: 46,
-                child: ElevatedButton(
-                  onPressed: vm.selectedSlot == null
-                      ? null
-                      : () => vm.openBooking(context),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFF4A261),
-                    disabledBackgroundColor: Colors.grey.shade300,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                  ),
-                  child: const Text(
-                    'Book The Bike',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        );
-        break;
-    }
-
+    final loaded = vm.stationDetailValue.state == AsyncValueState.success;
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF5F5F5),
-        elevation: 0,
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Station Info',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-        actions: [SubscriptionStatusBadge(hasSubscription: vm.hasSubscription)],
+        title: const Text('Station'),
+        actions: [
+          IconButton(
+            tooltip: 'Refresh station',
+            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+            onPressed: vm.stationDetailValue.state == AsyncValueState.loading
+                ? null
+                : () => vm.fetchStationDetail(forceFetch: true),
+            icon: const Icon(Icons.refresh_rounded),
+          ),
+          const SizedBox(width: VeloSpacings.xs),
+        ],
       ),
-      body: content,
+      body: SafeArea(
+        top: false,
+        bottom: !loaded,
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: _buildBody(context, vm),
+          ),
+        ),
+      ),
+      bottomNavigationBar: loaded ? _BookingAction(vm: vm) : null,
+    );
+  }
+
+  Widget _buildBody(BuildContext context, StationViewModel vm) {
+    switch (vm.stationDetailValue.state) {
+      case AsyncValueState.loading:
+        return const _StationMessage(
+          title: 'Loading station',
+          message: 'Checking bikes and slots for your ride.',
+          loading: true,
+        );
+      case AsyncValueState.error:
+        return _StationMessage(
+          title: 'Station couldn’t load',
+          message: 'Check your connection and try again.',
+          onRetry: () => vm.fetchStationDetail(forceFetch: true),
+        );
+      case AsyncValueState.success:
+        final station = vm.detail!.station;
+        final availableSlots = vm.availableSlotsById;
+        final visibleSlots = vm.visibleSlots;
+        final padding = MediaQuery.sizeOf(context).width >= 600
+            ? VeloSpacings.l
+            : VeloSpacings.m;
+        return LayoutBuilder(
+          builder: (context, constraints) {
+            final textScale = MediaQuery.textScalerOf(context).scale(16) / 16;
+            final width = constraints.maxWidth - padding * 2;
+            final columns = (width / (140 * textScale)).floor().clamp(1, 3);
+            final rows = (visibleSlots.length / columns).ceil();
+            return CustomScrollView(
+              slivers: [
+                SliverPadding(
+                  padding: EdgeInsets.fromLTRB(
+                    padding,
+                    VeloSpacings.xs,
+                    padding,
+                    VeloSpacings.l,
+                  ),
+                  sliver: SliverToBoxAdapter(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: VeloColors.white,
+                        borderRadius: BorderRadius.circular(
+                          VeloSpacings.radiusLarge,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(VeloSpacings.l),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Semantics(
+                              header: true,
+                              child: Text(
+                                station.name,
+                                style: VeloTextStyles.title,
+                              ),
+                            ),
+                            if (station.street.isNotEmpty) ...[
+                              const SizedBox(height: VeloSpacings.xs / 2),
+                              Text(station.street, style: VeloTextStyles.label),
+                            ],
+                            const Padding(
+                              padding: EdgeInsets.symmetric(
+                                vertical: VeloSpacings.m,
+                              ),
+                              child: Divider(height: 1),
+                            ),
+                            Wrap(
+                              spacing: VeloSpacings.l,
+                              runSpacing: VeloSpacings.s,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              children: [
+                                StatChip(
+                                  icon: Icons.pedal_bike_rounded,
+                                  value: vm.availableBikeCount,
+                                  label:
+                                      '${vm.availableBikeCount} bikes available',
+                                ),
+                                StatChip(
+                                  icon: Icons.local_parking_rounded,
+                                  value: vm.emptySlotCount,
+                                  label: '${vm.emptySlotCount} empty slots',
+                                ),
+                                Tooltip(
+                                  message: vm.hasSubscription
+                                      ? 'Pass linked to your account'
+                                      : 'A pass is required to confirm a booking',
+                                  child: Icon(
+                                    Icons.confirmation_number_outlined,
+                                    semanticLabel: vm.hasSubscription
+                                        ? 'Pass linked'
+                                        : 'No pass linked',
+                                    color: vm.hasSubscription
+                                        ? VeloColors.success
+                                        : VeloColors.neutralLight,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SliverPadding(
+                  padding: EdgeInsets.fromLTRB(
+                    padding,
+                    0,
+                    padding,
+                    VeloSpacings.m,
+                  ),
+                  sliver: SliverToBoxAdapter(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Semantics(
+                          header: true,
+                          child: const Text(
+                            'Pick your ride',
+                            style: VeloTextStyles.title,
+                          ),
+                        ),
+                        const SizedBox(height: VeloSpacings.xs / 2),
+                        Text(
+                          availableSlots.isEmpty
+                              ? 'No bikes available right now. Refresh or try another station.'
+                              : 'Tap an available bike to select it.',
+                          style: VeloTextStyles.label,
+                        ),
+                        const SizedBox(height: VeloSpacings.m),
+                        Wrap(
+                          spacing: VeloSpacings.xs,
+                          runSpacing: VeloSpacings.xs,
+                          children: [
+                            for (final filter in SlotFilter.values)
+                              ChoiceChip(
+                                label: Text(switch (filter) {
+                                  SlotFilter.all => 'All',
+                                  SlotFilter.bike => 'Available',
+                                  SlotFilter.empty => 'Empty',
+                                }),
+                                selected: vm.filter == filter,
+                                onSelected: (_) => vm.setFilter(filter),
+                                showCheckmark: false,
+                                selectedColor: VeloColors.neutralDark,
+                                backgroundColor: VeloColors.white,
+                                labelStyle: VeloTextStyles.button.copyWith(
+                                  color: vm.filter == filter
+                                      ? VeloColors.white
+                                      : VeloColors.neutralDark,
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: VeloSpacings.s,
+                                  vertical: VeloSpacings.xs,
+                                ),
+                                shape: const StadiumBorder(),
+                                side: BorderSide(
+                                  color: vm.filter == filter
+                                      ? VeloColors.neutralDark
+                                      : VeloColors.border,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                if (visibleSlots.isEmpty)
+                  SliverPadding(
+                    padding: EdgeInsets.fromLTRB(padding, 0, padding, padding),
+                    sliver: SliverToBoxAdapter(
+                      child: Semantics(
+                        liveRegion: true,
+                        child: Text(switch (vm.filter) {
+                          SlotFilter.all => 'No slots at this station.',
+                          SlotFilter.bike => 'No bikes to show.',
+                          SlotFilter.empty => 'No empty slots right now.',
+                        }, style: VeloTextStyles.body),
+                      ),
+                    ),
+                  ),
+                SliverPadding(
+                  padding: EdgeInsets.fromLTRB(padding, 0, padding, padding),
+                  sliver: SliverList(
+                    delegate: SliverChildBuilderDelegate((context, row) {
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: VeloSpacings.s),
+                        child: IntrinsicHeight(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              for (
+                                var column = 0;
+                                column < columns;
+                                column++
+                              ) ...[
+                                if (column > 0)
+                                  const SizedBox(width: VeloSpacings.s),
+                                Expanded(
+                                  child:
+                                      row * columns + column >=
+                                          visibleSlots.length
+                                      ? const SizedBox.shrink()
+                                      : Builder(
+                                          builder: (context) {
+                                            final slot =
+                                                visibleSlots[row * columns +
+                                                    column];
+                                            final available =
+                                                availableSlots[slot.id];
+                                            return StationSlotCard(
+                                              slot: slot,
+                                              bike: available?.bike,
+                                              selected:
+                                                  available != null &&
+                                                  vm.selectedSlotNumber ==
+                                                      slot.slotNumber,
+                                              onSelect: available == null
+                                                  ? null
+                                                  : () => vm.selectSlot(
+                                                      slot.slotNumber,
+                                                    ),
+                                            );
+                                          },
+                                        ),
+                                ),
+                              ],
+                            ],
+                          ),
+                        ),
+                      );
+                    }, childCount: rows),
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+    }
+  }
+}
+
+class _BookingAction extends StatelessWidget {
+  final StationViewModel vm;
+
+  const _BookingAction({required this.vm});
+
+  @override
+  Widget build(BuildContext context) {
+    final selected = vm.selectedSlot;
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        color: VeloColors.white,
+        border: Border(top: BorderSide(color: VeloColors.border)),
+      ),
+      child: SafeArea(
+        top: false,
+        child: Center(
+          heightFactor: 1,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: Padding(
+              padding: const EdgeInsets.all(VeloSpacings.m),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (vm.hasCurrentBooking) ...[
+                    Semantics(
+                      liveRegion: true,
+                      child: const Text(
+                        'You already have an active booking.',
+                        style: VeloTextStyles.body,
+                      ),
+                    ),
+                    const SizedBox(height: VeloSpacings.s),
+                  ] else if (selected != null) ...[
+                    Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        'Slot S${selected.slotNumber.toString().padLeft(2, '0')} selected',
+                        style: VeloTextStyles.body,
+                      ),
+                    ),
+                    const SizedBox(height: VeloSpacings.s),
+                  ],
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      disabledForegroundColor: VeloColors.neutralDark,
+                    ),
+                    onPressed: vm.canOpenBooking
+                        ? () => vm.openBooking(context)
+                        : null,
+                    child: const Text(
+                      'Continue to booking',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
 
-List<Widget> buildRating(int rating) {
-  return List.generate(
-    5,
-    (index) => Icon(
-      index < rating ? Icons.star : Icons.star_border,
-      color: Colors.orange,
-      size: 16,
-    ),
-  );
+class _StationMessage extends StatelessWidget {
+  final String title;
+  final String message;
+  final bool loading;
+  final VoidCallback? onRetry;
+
+  const _StationMessage({
+    required this.title,
+    required this.message,
+    this.loading = false,
+    this.onRetry,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(VeloSpacings.l),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (loading)
+              CircularProgressIndicator(
+                color: VeloColors.neutralDark,
+                semanticsLabel: title,
+              )
+            else
+              const ExcludeSemantics(
+                child: Icon(Icons.cloud_off_rounded, size: 40),
+              ),
+            const SizedBox(height: VeloSpacings.m),
+            Semantics(
+              header: true,
+              liveRegion: true,
+              child: Text(
+                title,
+                style: VeloTextStyles.title,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: VeloSpacings.xs),
+            Text(
+              message,
+              style: VeloTextStyles.body,
+              textAlign: TextAlign.center,
+            ),
+            if (onRetry != null) ...[
+              const SizedBox(height: VeloSpacings.l),
+              ElevatedButton.icon(
+                onPressed: onRetry,
+                icon: const Icon(Icons.refresh_rounded),
+                label: const Text('Try again'),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
 }

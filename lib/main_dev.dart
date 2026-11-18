@@ -14,6 +14,7 @@ import 'data/repositories/stations/station_repository.dart';
 import 'main_common.dart';
 import 'domain/services/station_detail_service.dart';
 import 'domain/services/user_detail_service.dart';
+import 'domain/services/user_expiry_service.dart';
 
 List<InheritedProvider> get devProviders {
   final UserRepository userRepository = UserFirebaseRepository();
@@ -26,8 +27,20 @@ List<InheritedProvider> get devProviders {
       create: (_) => SubscriptionFirebaseRepository(),
     ),
     Provider<BookingRepository>(create: (_) => BookingFirebaseRepository()),
+    Provider<UserExpiryService>(
+      create: (context) => UserExpiryService(
+        userRepository: userRepository,
+        bookingRepository: context.read<BookingRepository>(),
+        subscriptionRepository: context.read<SubscriptionRepository>(),
+        stationRepository: context.read<StationRepository>(),
+      ),
+    ),
     ChangeNotifierProvider<UserState>(
-      create: (_) => UserState(repository: userRepository, userId: 'u1'),
+      create: (context) => UserState(
+        repository: userRepository,
+        userId: 'u1',
+        expiryService: context.read<UserExpiryService>(),
+      ),
     ),
     Provider<UserDetailService>(
       create: (context) => UserDetailService(
