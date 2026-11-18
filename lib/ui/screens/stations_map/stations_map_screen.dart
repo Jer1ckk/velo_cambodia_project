@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../data/repositories/stations/station_repository.dart';
+import '../../states/user_state.dart';
 import 'view_model/station_map_view_model.dart';
 import 'widgets/station_map_content.dart';
 
@@ -13,6 +14,7 @@ class StationMapScreen extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => StationMapViewModel(
         stationRepository: context.read<StationRepository>(),
+        userState: context.read<UserState>(),
       ),
       child: const StationMapContent(),
     );

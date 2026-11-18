@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../../../../domain/models/bikes/bike.dart';
+import '../../../../domain/models/slots/slot.dart';
 import '../../../../domain/services/station_detail_service.dart';
 import '../../../../domain/models/stations/station_detail.dart';
 import '../../../states/user_state.dart';
 import '../../../utils/async_value.dart';
 import '../../booking_bike/booking_bike_screen.dart';
+
+enum SlotFilter { all, bike, empty }
 
 class StationViewModel extends ChangeNotifier {
   final String stationId;
@@ -15,20 +18,36 @@ class StationViewModel extends ChangeNotifier {
   AsyncValue<StationDetail> stationDetailValue = AsyncValue.loading();
 
   int? selectedSlotNumber;
+  bool _isDisposed = false;
+  int _loadRequest = 0;
+  late int _bookingRevision;
 
   StationViewModel({
     required this.stationId,
     required this.userState,
     required this.stationDetailService,
   }) {
-    userState.addListener(notifyListeners);
+    _bookingRevision = userState.bookingRevision;
+    userState.addListener(_handleUserChange);
     _init();
   }
 
   @override
   void dispose() {
-    userState.removeListener(notifyListeners);
+    _isDisposed = true;
+    _loadRequest++;
+    userState.removeListener(_handleUserChange);
     super.dispose();
+  }
+
+  void _handleUserChange() {
+    if (_isDisposed) return;
+    if (_bookingRevision != userState.bookingRevision) {
+      _bookingRevision = userState.bookingRevision;
+      fetchStationDetail(forceFetch: true);
+    } else {
+      notifyListeners();
+    }
   }
 
   void _init() {
@@ -36,6 +55,8 @@ class StationViewModel extends ChangeNotifier {
   }
 
   Future<void> fetchStationDetail({bool forceFetch = false}) async {
+    if (_isDisposed) return;
+    final request = ++_loadRequest;
     stationDetailValue = AsyncValue.loading();
     notifyListeners();
 
@@ -44,8 +65,10 @@ class StationViewModel extends ChangeNotifier {
         stationId,
         forceFetch: forceFetch,
       );
+      if (_isDisposed || request != _loadRequest) return;
       stationDetailValue = AsyncValue.success(detail);
     } catch (e) {
+      if (_isDisposed || request != _loadRequest) return;
       stationDetailValue = AsyncValue.error(e);
     }
 
@@ -53,6 +76,14 @@ class StationViewModel extends ChangeNotifier {
   }
 
   bool get hasSubscription => userState.hasSubscription;
+
+  bool get hasCurrentBooking => userState.hasBooking;
+
+  bool get canOpenBooking =>
+      !_isDisposed &&
+      userState.user != null &&
+      !hasCurrentBooking &&
+      selectedSlot != null;
 
   StationDetail? get detail => stationDetailValue.data;
 
@@ -89,6 +120,30 @@ class StationViewModel extends ChangeNotifier {
     return null;
   }
 
+  SlotFilter _filter = SlotFilter.all;
+
+  SlotFilter get filter => _filter;
+
+  void setFilter(SlotFilter filter) {
+    _filter = filter;
+    notifyListeners();
+  }
+
+  Map<String, SlotWithBike> get availableSlotsById => {
+    for (final slot in availableSlots) slot.slotId: slot,
+  };
+
+  List<Slot> get visibleSlots {
+    final available = availableSlotsById;
+    return (detail?.station.slots ?? <Slot>[]).where((slot) {
+      return switch (_filter) {
+        SlotFilter.all => true,
+        SlotFilter.bike => available.containsKey(slot.id),
+        SlotFilter.empty => slot.bikeId == null,
+      };
+    }).toList();
+  }
+
   int get availableBikeCount => availableSlots.length;
 
   int get emptySlotCount {
@@ -115,10 +170,9 @@ class StationViewModel extends ChangeNotifier {
     }
   }
 
-
   Future<void> openBooking(BuildContext context) async {
-    final slot = selectedSlot;
-    if (slot == null) return;
+    if (!canOpenBooking) return;
+    final slot = selectedSlot!;
 
     final result = await Navigator.push(
       context,
@@ -130,6 +184,7 @@ class StationViewModel extends ChangeNotifier {
       ),
     );
 
+    if (_isDisposed) return;
     if (result == true) {
       selectedSlotNumber = null;
       await fetchStationDetail(forceFetch: true);

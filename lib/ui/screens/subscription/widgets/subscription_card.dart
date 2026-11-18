@@ -1,80 +1,100 @@
 import 'package:flutter/material.dart';
 
+import '../../../theme/theme.dart';
+
 class SubscriptionCard extends StatelessWidget {
   final String title;
   final String price;
+  final String description;
   final VoidCallback onTap;
   final bool isDisabled;
+  final bool isActive;
 
   const SubscriptionCard({
     super.key,
     required this.title,
     required this.price,
+    required this.description,
     required this.onTap,
     required this.isDisabled,
+    required this.isActive,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return Semantics(
+      button: true,
+      enabled: !isDisabled,
+      selected: isActive,
       onTap: isDisabled ? null : onTap,
-      child: Opacity(
-        opacity: isDisabled ? 0.6 : 1,
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 16),
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: isDisabled ? Colors.grey : Colors.redAccent,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: (isDisabled ? Colors.grey : Colors.redAccent)
-                    .withOpacity(0.08),
-                blurRadius: 6,
-                offset: const Offset(0, 2),
-              ),
-            ],
+      label:
+          '$title, $price. $description. '
+          '${isActive
+              ? 'Active pass'
+              : isDisabled
+              ? 'Pass option'
+              : 'View pass details'}',
+      excludeSemantics: true,
+      child: Material(
+        color: isActive ? VeloColors.successLight : VeloColors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(VeloSpacings.radius),
+          side: BorderSide(
+            color: isActive ? VeloColors.success : VeloColors.neutralLight,
+            width: isActive ? 2 : 1,
           ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: isDisabled ? null : onTap,
+          borderRadius: BorderRadius.circular(VeloSpacings.radius),
+          child: Padding(
+            padding: const EdgeInsets.all(VeloSpacings.m),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(title, style: VeloTextStyles.title),
+                const SizedBox(height: VeloSpacings.s),
+                Text(price, style: VeloTextStyles.heading),
+                const SizedBox(height: VeloSpacings.xs),
+                Text(
+                  description,
+                  style: VeloTextStyles.label.copyWith(
+                    color: isActive
+                        ? VeloColors.neutralDark
+                        : VeloColors.textLight,
+                  ),
+                ),
+                if (isActive || !isDisabled) ...[
+                  const SizedBox(height: VeloSpacings.l),
+                  Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: VeloSpacings.s,
+                    runSpacing: VeloSpacings.xs,
+                    children: [
+                      Text(
+                        isActive ? 'Active pass' : 'View pass details',
+                        style: VeloTextStyles.body.copyWith(
+                          color: isActive
+                              ? VeloColors.success
+                              : VeloColors.neutralDark,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      price,
-                      style: TextStyle(
-                        color: isDisabled ? Colors.grey : Colors.red,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    if (isDisabled) ...[
-                      const SizedBox(height: 6),
-                      const Text(
-                        'You already have an active pass',
-                        style: TextStyle(color: Colors.grey, fontSize: 12),
+                      Icon(
+                        isActive
+                            ? Icons.check_circle_rounded
+                            : Icons.arrow_forward_rounded,
+                        color: isActive
+                            ? VeloColors.success
+                            : VeloColors.neutralDark,
                       ),
                     ],
-                  ],
-                ),
-              ),
-              Icon(
-                Icons.arrow_forward_ios,
-                color: isDisabled ? Colors.grey : Colors.brown,
-                size: 18,
-              ),
-            ],
+                  ),
+                ],
+              ],
+            ),
           ),
         ),
       ),

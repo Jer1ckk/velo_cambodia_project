@@ -1,69 +1,72 @@
 import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-Future<BitmapDescriptor> createNumberMarker(int bikeCount) async {
-  Color color;
-  if (bikeCount == 0) {
-    color = Colors.red;
-  } else if (bikeCount <= 4) {
-    color = Colors.orange;
-  } else {
-    color = Colors.green;
-  }
+import '../../../theme/theme.dart';
 
-  const double width = 120;
-  const double height = 140;
-
+Future<BitmapDescriptor> createNumberMarker(
+  int bikeCount, {
+  bool selected = false,
+}) async {
+  // Render at 2x, then supply logical dimensions for consistent map sizing.
+  const width = 96.0;
+  const height = 112.0;
+  final color = selected
+      ? VeloColors.neutralDark
+      : bikeCount == 0
+      ? VeloColors.backgroundAccent
+      : VeloColors.primary;
+  final foreground = selected ? VeloColors.white : VeloColors.neutralDark;
   final recorder = ui.PictureRecorder();
   final canvas = Canvas(recorder);
-  final fillPaint = Paint()..color = color;
-
-  canvas.drawCircle(const Offset(width / 2, 45), 36, fillPaint);
-
-  final path = Path()
-    ..moveTo(width / 2 - 16, 72)
-    ..lineTo(width / 2 + 16, 72)
-    ..lineTo(width / 2, 110)
+  final shape = Path()
+    ..addRRect(
+      RRect.fromRectAndRadius(
+        const Rect.fromLTWH(4, 4, 88, 80),
+        const Radius.circular(32),
+      ),
+    )
+    ..moveTo(34, 82)
+    ..lineTo(48, 104)
+    ..lineTo(62, 82)
     ..close();
-  canvas.drawPath(path, fillPaint);
-
-  final borderPaint = Paint()
-    ..color = Colors.white
-    ..style = PaintingStyle.stroke
-    ..strokeWidth = 4;
-
-  canvas.drawCircle(const Offset(width / 2, 45), 36, borderPaint);
-  canvas.drawPath(path, borderPaint);
-
-  final textPainter = TextPainter(
+  canvas.drawPath(shape, Paint()..color = color);
+  canvas.drawPath(
+    shape,
+    Paint()
+      ..color = VeloColors.white
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 4,
+  );
+  final painter = TextPainter(
     text: TextSpan(
       text: '$bikeCount',
-      style: const TextStyle(
-        color: Colors.white,
-        fontSize: 28,
-        fontWeight: FontWeight.bold,
+      style: TextStyle(
+        color: foreground,
+        fontSize: 32,
+        fontWeight: FontWeight.w600,
       ),
     ),
     textDirection: TextDirection.ltr,
-    textAlign: TextAlign.center,
-  );
-
-  textPainter.layout();
-  textPainter.paint(
+  )..layout();
+  painter.paint(
     canvas,
-    Offset((width - textPainter.width) / 2, 45 - textPainter.height / 2),
+    Offset((width - painter.width) / 2, (88 - painter.height) / 2),
   );
-
-  final image = await recorder.endRecording().toImage(
-    width.toInt(),
-    height.toInt(),
-  );
-
-  final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
-  if (byteData == null) {
-    throw Exception('Failed to convert marker to bytes');
+  final picture = recorder.endRecording();
+  final image = await picture.toImage(width.toInt(), height.toInt());
+  try {
+    final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+    if (bytes == null) throw StateError('Unable to render station marker');
+    return BitmapDescriptor.bytes(
+      bytes.buffer.asUint8List(),
+      width: 48,
+      height: 56,
+    );
+  } finally {
+    image.dispose();
+    picture.dispose();
+    painter.dispose();
   }
-
-  return BitmapDescriptor.fromBytes(byteData.buffer.asUint8List());
 }

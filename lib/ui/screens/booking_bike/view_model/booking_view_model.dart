@@ -25,6 +25,8 @@ class BookingBikeViewModel extends ChangeNotifier {
   StationDetail? detail;
   bool agreeBooking = false;
   bool _isSubmitting = false;
+  bool _isLoading = false;
+  bool _isDisposed = false;
 
   BookingBikeViewModel({
     required this.stationId,
@@ -35,28 +37,36 @@ class BookingBikeViewModel extends ChangeNotifier {
     required this.stationRepository,
   }) {
     userState.addListener(notifyListeners);
-    _init();
+    loadBookingDetails();
   }
 
   @override
   void dispose() {
+    _isDisposed = true;
     userState.removeListener(notifyListeners);
     super.dispose();
   }
 
-  Future<void> _init() async {
+  Future<void> loadBookingDetails({bool forceFetch = false}) async {
+    if (_isDisposed || _isLoading || _isSubmitting) return;
+    _isLoading = true;
     bookingValue = AsyncValue.loading();
     notifyListeners();
-
     try {
-      final data = await stationDetailService.fetchStationDetailById(stationId);
+      final data = await stationDetailService.fetchStationDetailById(
+        stationId,
+        forceFetch: forceFetch,
+      );
+      if (_isDisposed) return;
       detail = data;
       bookingValue = AsyncValue.success(data);
-    } catch (e) {
-      bookingValue = AsyncValue.error(e);
+    } catch (error) {
+      if (_isDisposed) return;
+      bookingValue = AsyncValue.error(error);
+    } finally {
+      _isLoading = false;
     }
-
-    notifyListeners();
+    if (!_isDisposed) notifyListeners();
   }
 
   Station? get station => detail?.station;
@@ -91,7 +101,17 @@ class BookingBikeViewModel extends ChangeNotifier {
   bool get hasBike => bike != null;
   bool get isSubmitting => _isSubmitting;
 
+  bool get hasConfirmationError =>
+      detail != null && bookingValue.state == AsyncValueState.error;
+
+  bool get canAgree => !hasActiveBooking && hasActivePass && hasBike;
+
+  void goBackToStation(BuildContext context) {
+    Navigator.pop(context);
+  }
+
   bool get canConfirm =>
+      !hasConfirmationError &&
       !hasActiveBooking &&
       hasActivePass &&
       agreeBooking &&
@@ -99,17 +119,21 @@ class BookingBikeViewModel extends ChangeNotifier {
       !_isSubmitting;
 
   void toggleAgree(bool value) {
+    if (_isSubmitting || hasConfirmationError || !canAgree) return;
     agreeBooking = value;
     notifyListeners();
   }
 
   Future<void> confirmBooking(BuildContext context) async {
-    if (!canConfirm) return;
+    if (_isDisposed || !canConfirm) return;
 
     _isSubmitting = true;
     notifyListeners();
 
     try {
+      await userState.checkExpiry();
+      if (_isDisposed || !context.mounted) return;
+      if (!canAgree) return;
       final user = userState.user;
       final currentBike = bike;
       final currentSlot = slot;
@@ -145,7 +169,7 @@ class BookingBikeViewModel extends ChangeNotifier {
 
       await userState.updateBooking(booking.id);
 
-      if (!context.mounted) return;
+      if (_isDisposed || !context.mounted) return;
 
       Navigator.pushReplacement(
         context,
@@ -154,15 +178,15 @@ class BookingBikeViewModel extends ChangeNotifier {
             stationName: currentStation.name,
             slotNumber: slotNumber,
             bikeId: currentBike.id,
+            pickupDeadline: booking.expiryTime,
           ),
         ),
       );
     } catch (e) {
-      bookingValue = AsyncValue.error(e);
-      notifyListeners();
+      if (!_isDisposed) bookingValue = AsyncValue.error(e);
     } finally {
       _isSubmitting = false;
-      notifyListeners();
+      if (!_isDisposed) notifyListeners();
     }
   }
 }

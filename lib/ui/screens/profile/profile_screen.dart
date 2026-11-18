@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:velo_project/data/repositories/stations/station_repository.dart';
 
 import '../../../domain/services/user_detail_service.dart';
 import '../../states/user_state.dart';
@@ -16,7 +15,6 @@ class ProfileScreen extends StatelessWidget {
       create: (context) => ProfileViewModel(
         userState: context.read<UserState>(),
         userDetailService: context.read<UserDetailService>(),
-        stationRepository: context.read<StationRepository>(),
       ),
       child: const ProfileContent(),
     );

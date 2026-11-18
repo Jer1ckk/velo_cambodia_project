@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../data/repositories/subscriptions/subscription_repository.dart';
 import '../../states/user_state.dart';
 import 'view_model/subscription_view_model.dart';
 import 'widgets/subscription_content.dart';
@@ -13,6 +14,7 @@ class SubscriptionScreen extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => SubscriptionViewModel(
         userState: context.read<UserState>(),
+        subscriptionRepository: context.read<SubscriptionRepository>(),
       ),
       child: const SubscriptionContent(),
     );

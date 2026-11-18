@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../data/repositories/stations/station_repository.dart';
 import '../../../../domain/services/user_detail_service.dart';
 import '../../../../domain/models/users/user.dart';
 import '../../../../domain/models/users/user_detail.dart';
@@ -10,7 +9,6 @@ import '../../../utils/async_value.dart';
 class ProfileViewModel extends ChangeNotifier {
   final UserState userState;
   final UserDetailService userDetailService;
-  final StationRepository stationRepository;
 
   AsyncValue<UserDetail> userDetailValue = AsyncValue.loading();
 
@@ -18,19 +16,17 @@ class ProfileViewModel extends ChangeNotifier {
   String? _lastSubscriptionId;
   String? _lastBookingId;
   bool _isFetching = false;
-  bool _isHandlingExpiredBooking = false;
+  bool _isDisposed = false;
+  bool _reloadAfterFetch = false;
 
-  ProfileViewModel({
-    required this.userState,
-    required this.userDetailService,
-    required this.stationRepository,
-  }) {
+  ProfileViewModel({required this.userState, required this.userDetailService}) {
     userState.addListener(_handleUserStateChange);
     _init();
   }
 
   @override
   void dispose() {
+    _isDisposed = true;
     userState.removeListener(_handleUserStateChange);
     super.dispose();
   }
@@ -48,6 +44,7 @@ class ProfileViewModel extends ChangeNotifier {
   }
 
   void _handleUserStateChange() {
+    if (_isDisposed) return;
     final user = userState.user;
 
     if (user == null) {
@@ -60,8 +57,12 @@ class ProfileViewModel extends ChangeNotifier {
 
     final hasChanged = _hasUserDetailChanged(user);
 
-    if (hasChanged && !_isFetching) {
-      fetchUserDetail();
+    if (hasChanged) {
+      if (_isFetching) {
+        _reloadAfterFetch = true;
+      } else {
+        fetchUserDetail(forceFetch: true);
+      }
       return;
     }
 
@@ -75,6 +76,7 @@ class ProfileViewModel extends ChangeNotifier {
   }
 
   Future<void> fetchUserDetail({bool forceFetch = false}) async {
+    if (_isDisposed) return;
     final user = userState.user;
 
     if (user == null) {
@@ -85,6 +87,9 @@ class ProfileViewModel extends ChangeNotifier {
 
     if (_isFetching) return;
 
+    _lastUserId = user.id;
+    _lastSubscriptionId = user.subscriptionId;
+    _lastBookingId = user.currentBookingId;
     _isFetching = true;
     userDetailValue = AsyncValue.loading();
     notifyListeners();
@@ -95,27 +100,7 @@ class ProfileViewModel extends ChangeNotifier {
         forceFetch: forceFetch,
       );
 
-      final booking = detail.currentBooking;
-
-      if (booking != null && booking.isExpired && !_isHandlingExpiredBooking) {
-        _isHandlingExpiredBooking = true;
-
-        final slotId = 'slot_${booking.slotNumber}';
-
-        await stationRepository.returnBikeToSlot(
-          booking.stationId,
-          slotId,
-          booking.bikeId,
-        );
-
-        await userState.clearCurrentBooking();
-
-        _isHandlingExpiredBooking = false;
-        _isFetching = false;
-
-        await fetchUserDetail(forceFetch: true);
-        return;
-      }
+      if (_isDisposed) return;
 
       _lastUserId = detail.user.id;
       _lastSubscriptionId = detail.user.subscriptionId;
@@ -123,13 +108,32 @@ class ProfileViewModel extends ChangeNotifier {
 
       userDetailValue = AsyncValue.success(detail);
     } catch (e) {
+      if (_isDisposed) return;
       userDetailValue = AsyncValue.error(e);
     } finally {
       _isFetching = false;
-      _isHandlingExpiredBooking = false;
     }
 
+    if (!_isDisposed && _reloadAfterFetch) {
+      _reloadAfterFetch = false;
+      await fetchUserDetail(forceFetch: true);
+      return;
+    }
     notifyListeners();
+  }
+
+  bool get hasActiveBooking => userDetailValue.data?.hasActiveBooking ?? false;
+
+  bool get canRefresh => !_isDisposed && !_isFetching && userState.user != null;
+
+  String get subscriptionStatus {
+    if (userDetailValue.data?.subscription == null) return 'No pass';
+    return hasActiveSubscription ? 'Active' : 'Expired';
+  }
+
+  String get bookingStatus {
+    if (userDetailValue.data?.currentBooking == null) return 'No booking';
+    return hasActiveBooking ? 'Reserved' : 'Expired';
   }
 
   bool get hasActiveSubscription {

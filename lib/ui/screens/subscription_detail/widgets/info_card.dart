@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../theme/theme.dart';
+
 class InfoCard extends StatelessWidget {
   final String title;
   final String price;
@@ -15,50 +17,41 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(VeloSpacings.m),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.shade300),
+        color: VeloColors.white,
+        border: Border.all(color: VeloColors.border),
+        borderRadius: BorderRadius.circular(VeloSpacings.radius),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            title,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Semantics(
+            header: true,
+            child: Text(title, style: VeloTextStyles.title),
           ),
-          const SizedBox(height: 4),
-          Text(
-            price,
-            style: const TextStyle(
-              color: Colors.red,
-              fontWeight: FontWeight.w600,
+          const SizedBox(height: VeloSpacings.s),
+          Text(price, style: VeloTextStyles.heading),
+          const SizedBox(height: VeloSpacings.l),
+          const Text('Included with this pass', style: VeloTextStyles.body),
+          const SizedBox(height: VeloSpacings.s),
+          for (final feature in features)
+            Padding(
+              padding: const EdgeInsets.only(bottom: VeloSpacings.s),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const ExcludeSemantics(
+                    child: Icon(
+                      Icons.check_circle_outline_rounded,
+                      color: VeloColors.success,
+                    ),
+                  ),
+                  const SizedBox(width: VeloSpacings.xs),
+                  Expanded(child: Text(feature, style: VeloTextStyles.body)),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 12),
-          ...features.map((f) => _FeatureRow(text: f)),
-        ],
-      ),
-    );
-  }
-}
-
-class _FeatureRow extends StatelessWidget {
-  final String text;
-
-  const _FeatureRow({required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 6),
-      child: Row(
-        children: [
-          const Icon(Icons.check_circle, color: Colors.green, size: 18),
-          const SizedBox(width: 6),
-          Expanded(child: Text(text)),
         ],
       ),
     );

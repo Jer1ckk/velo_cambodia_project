@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:velo_project/ui/widgets/subscription_status_badge.dart';
 
-import '../../../../domain/models/subscriptions/subscription.dart';
-import '../../../utils/async_value.dart';
+import '../../../theme/theme.dart';
 import '../view_model/subscription_detail_view_model.dart';
+import 'activation_result.dart';
 import 'info_card.dart';
 import 'payment_card.dart';
 
@@ -14,157 +13,128 @@ class PassDetailContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final vm = context.watch<SubscriptionDetailViewModel>();
-    final type = vm.type;
-
-    final title = _getTitle(type);
-    final price = _getPrice(type);
-    final total = _getTotal(type);
-    final features = _getFeatures(type);
+    final option = vm.option;
+    final margin = MediaQuery.sizeOf(context).width >= 600
+        ? VeloSpacings.l
+        : VeloSpacings.m;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF5F5F5),
-        elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.brown),
-          onPressed: () => Navigator.pop(context),
+          tooltip: 'Back to passes',
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => vm.goBack(context),
         ),
-        title: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        actions: [SubscriptionStatusBadge(hasSubscription: vm.hasSubscription)],
+        title: Text(vm.isActivated ? 'Pass activated' : 'Pass details'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            InfoCard(title: title, price: price, features: features),
-            const SizedBox(height: 16),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('Total cost'),
-                Text(
-                  total,
-                  style: const TextStyle(
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold,
+      body: SafeArea(
+        top: false,
+        child: vm.showActivationResult
+            ? const SubscriptionActivationResult()
+            : SingleChildScrollView(
+                padding: EdgeInsets.all(margin),
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 600),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Semantics(
+                          header: true,
+                          child: const Text(
+                            'Review your pass',
+                            style: VeloTextStyles.heading,
+                          ),
+                        ),
+                        const SizedBox(height: VeloSpacings.xs),
+                        Text(
+                          'Check what’s included before you activate.',
+                          style: VeloTextStyles.body.copyWith(
+                            color: VeloColors.neutral,
+                          ),
+                        ),
+                        const SizedBox(height: VeloSpacings.l),
+                        InfoCard(
+                          title: option.title,
+                          price: option.price,
+                          features: option.features,
+                        ),
+                        const SizedBox(height: VeloSpacings.m),
+                        const PaymentCard(),
+                        const SizedBox(height: VeloSpacings.l),
+                        Wrap(
+                          alignment: WrapAlignment.spaceBetween,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          spacing: VeloSpacings.m,
+                          runSpacing: VeloSpacings.xs,
+                          children: [
+                            const Text(
+                              'Pass price',
+                              style: VeloTextStyles.body,
+                            ),
+                            Text(option.total, style: VeloTextStyles.title),
+                          ],
+                        ),
+                        const SizedBox(height: VeloSpacings.l),
+                        if (vm.activationMessage != null) ...[
+                          Semantics(
+                            liveRegion: true,
+                            child: Container(
+                              padding: const EdgeInsets.all(VeloSpacings.m),
+                              decoration: BoxDecoration(
+                                color: vm.hasError
+                                    ? VeloColors.errorLight
+                                    : VeloColors.infoLight,
+                                borderRadius: BorderRadius.circular(
+                                  VeloSpacings.radius,
+                                ),
+                              ),
+                              child: Text(
+                                vm.activationMessage!,
+                                style: VeloTextStyles.body,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: VeloSpacings.m),
+                        ],
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            disabledForegroundColor: VeloColors.neutralDark,
+                          ),
+                          onPressed: vm.canConfirm
+                              ? () => vm.confirmSubscription(context)
+                              : null,
+                          child: vm.isSubmitting
+                              ? const Wrap(
+                                  alignment: WrapAlignment.center,
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  spacing: VeloSpacings.s,
+                                  runSpacing: VeloSpacings.xs,
+                                  children: [
+                                    SizedBox(
+                                      width: VeloSize.icon,
+                                      height: VeloSize.icon,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        color: VeloColors.neutralDark,
+                                        semanticsLabel: 'Activating pass',
+                                      ),
+                                    ),
+                                    Text('Activating pass…'),
+                                  ],
+                                )
+                              : Text(
+                                  vm.activationActionLabel,
+                                  textAlign: TextAlign.center,
+                                ),
+                        ),
+                        const SizedBox(height: VeloSpacings.m),
+                      ],
+                    ),
                   ),
                 ),
-              ],
-            ),
-
-            const SizedBox(height: 16),
-            const PaymentCard(),
-            const SizedBox(height: 16),
-
-            if (vm.subscribeValue.state == AsyncValueState.error)
-              Text(
-                'error = ${vm.subscribeValue.error}',
-                style: const TextStyle(color: Colors.red),
               ),
-
-            const Spacer(),
-
-            SizedBox(
-              width: double.infinity,
-              height: 48,
-              child: ElevatedButton(
-                onPressed: vm.isSubmitting
-                    ? null
-                    : () => vm.confirmSubscription(context),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                child: vm.isSubmitting
-                    ? const SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          color: Colors.white,
-                        ),
-                      )
-                    : const Text(
-                        'confirm subscription',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
-  }
-
-  String _getTitle(SubscriptionType type) {
-    switch (type) {
-      case SubscriptionType.daily:
-        return 'Single Day Pass';
-      case SubscriptionType.monthly:
-        return 'Monthly Pass';
-      case SubscriptionType.annual:
-        return 'Annual Pass';
-    }
-  }
-
-  String _getPrice(SubscriptionType type) {
-    switch (type) {
-      case SubscriptionType.daily:
-        return '\$4.99 / Day';
-      case SubscriptionType.monthly:
-        return '\$69.99 / month';
-      case SubscriptionType.annual:
-        return '\$269.99 / year';
-    }
-  }
-
-  String _getTotal(SubscriptionType type) {
-    switch (type) {
-      case SubscriptionType.daily:
-        return '\$4.99';
-      case SubscriptionType.monthly:
-        return '\$69.99';
-      case SubscriptionType.annual:
-        return '\$269.99';
-    }
-  }
-
-  List<String> _getFeatures(SubscriptionType type) {
-    switch (type) {
-      case SubscriptionType.daily:
-        return const [
-          'Unlimited bike rides for 24 hours',
-          'No need to buy tickets each time',
-          'Quick and easy for one-day use',
-          'Ideal for exploring the city',
-        ];
-      case SubscriptionType.monthly:
-        return const [
-          'Unlimited bike rides for 30 days',
-          'Best for regular riders',
-          'Save more than single tickets',
-          'Fast booking with active pass',
-        ];
-      case SubscriptionType.annual:
-        return const [
-          'Unlimited bike rides for 1 year',
-          'Best value for long-term users',
-          'No monthly renewal needed',
-          'Perfect for daily commuting',
-        ];
-    }
   }
 }
